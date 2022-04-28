@@ -281,52 +281,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 143699105}
   m_CullTransparentMesh: 1
---- !u!1 &541007545
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 541007547}
-  - component: {fileID: 541007546}
-  m_Layer: 0
-  m_Name: InputManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &541007546
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 541007545}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9bf804381fe2d844acf3cb184801a6f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  theName: 
-  inputField: {fileID: 143699105}
-  textDisplay: {fileID: 0}
---- !u!4 &541007547
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 541007545}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 651.0826, y: 1579.1411, z: -0.055114746}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &596877868
 GameObject:
   m_ObjectHideFlags: 0
@@ -945,4 +899,6 @@ MonoBehaviour:
   button: {fileID: 1520414530}
   roomPrefab: {fileID: 7261060750348266305, guid: 8ae62a667a5596f42b57c3ee5485d6a3, type: 3}
   canvas: {fileID: 1072098596}
+  theName: 
+  inputField: {fileID: 143699105}
   test: []
