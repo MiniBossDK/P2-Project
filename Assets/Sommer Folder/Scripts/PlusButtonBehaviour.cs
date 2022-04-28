@@ -7,36 +7,30 @@ public class PlusButtonBehaviour : MonoBehaviour
 {
     [SerializeField] private Button button;
     [SerializeField] private GameObject roomPrefab;
-    //[SerializeField] private Text text;
     [SerializeField] private Transform canvas;
-   // public string roomName;
-    
 
-    public List<string> test = new List<string>();
+    //theName = the name which is stored into PlayerPrefs later on
+    //inputField = the text input from the user
+    public string theName;
+    public GameObject inputField;
+
 
     void Start()
     {
-        button.onClick.AddListener(NewRoom);
-        test.Add("Tis");
-        test.Add("Mis");
-        test.Add("Pis");
+        button.onClick.AddListener(StoreName);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+    //Instantiates the room prefab.
     private void NewRoom()
     {
         roomPrefab = Instantiate(roomPrefab, new Vector3(360, 740, 0), Quaternion.identity) as GameObject;
-        roomPrefab.transform.parent  = canvas.transform;
-        SetString();
+        roomPrefab.transform.SetParent(canvas.transform);
     }
-
-    private void SetString()
+    //Stores the input from the user into the PlayerPrefs, and runs the instantiation method afterwards - to avoid a null reference.
+    public void StoreName()
     {
-        PlayerPrefs.SetString("roomName", test[Random.Range(0, 2)]);
+        theName = inputField.GetComponent<Text>().text;
+        PlayerPrefs.SetString("roomName", theName);
+        NewRoom();
     }
 }

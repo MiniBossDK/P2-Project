@@ -5,24 +5,13 @@ using UnityEngine.UI;
 
 public class TestInstantiation : MonoBehaviour
 {
-    //public PlusButtonBehaviour plusButton = new PlusButtonBehaviour();
     public Text text;
     private string name;
+
+    //Sets the text on the button equals to the user input that is stored into PlayerPrefs on awake.
     private void Awake()
     {
         text.text = GetString();
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     private string GetString()
