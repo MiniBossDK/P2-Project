@@ -42,7 +42,7 @@ public class RoomArranger : MonoBehaviour
     {
         // Remove all already existing elements
         if (elements.Count > 0) elements.Clear();
-
+        // Get new elements and cache them
         for (int i = 0; i < roomContainer.childCount; i++)
         {
             elements.Add(roomContainer.GetChild(i).GetComponent<RectTransform>());
