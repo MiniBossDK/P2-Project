@@ -24,7 +24,7 @@ public class PlusButtonBehaviour : MonoBehaviour
     private void NewRoom()
     {
         roomPrefab = Instantiate(roomPrefab, new Vector3(360, 740, 0), Quaternion.identity) as GameObject;
-        roomPrefab.transform.parent  = canvas.transform;
+        roomPrefab.transform.SetParent(canvas.transform);
     }
     //Stores the input from the user into the PlayerPrefs, and runs the instantiation method afterwards - to avoid a null reference.
     public void StoreName()
