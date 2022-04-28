@@ -20,6 +20,7 @@ public class StickyPlusButtonHandler : MonoBehaviour
 
     private void OnScroll(Vector2 dir)
     {
+        /*
         if (dir.y > 0)
         {
             if (_stickPoint.transform.position.y >= _addRoomBtn.transform.position.y)
@@ -28,8 +29,9 @@ public class StickyPlusButtonHandler : MonoBehaviour
             }
             else
             {
-                
+
             }
         }
+        */
     }
 }
