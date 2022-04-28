@@ -30,13 +30,14 @@ public class PlusButtonBehaviour : MonoBehaviour
 
     private void NewRoom()
     {
+        GetComponent<RoomCreater>().StoreName();
         roomPrefab = Instantiate(roomPrefab, new Vector3(360, 740, 0), Quaternion.identity) as GameObject;
         roomPrefab.transform.parent  = canvas.transform;
-        SetString();
+        //SetString();
     }
 
     private void SetString()
     {
-        PlayerPrefs.SetString("roomName", test[Random.Range(0, 2)]);
+        //PlayerPrefs.SetString("roomName", test[Random.Range(0, 2)]);
     }
 }
