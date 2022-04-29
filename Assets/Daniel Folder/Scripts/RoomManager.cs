@@ -19,14 +19,14 @@ public class RoomManager : JsonManager<Room>
         _rooms.Add(room);
         SaveData(_rooms);
     }
-    
-    /*
-    public void DeleteRoom(Room room)
+
+    public void DeleteRoom(int index)
     {
-        var newList = _rooms.Where(r => r.ID != room.ID).ToList();
+        var newList = _rooms.Where(r => r.Index != index).ToList();
 
         _rooms = newList;
+        Debug.Log(_rooms.Count);
         SaveData(_rooms);
     }
-    */
+
 }

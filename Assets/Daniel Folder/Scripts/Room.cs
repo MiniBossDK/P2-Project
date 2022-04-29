@@ -1,7 +1,8 @@
 using System;
+using UnityEngine;
 
 [Serializable]
-public class Room
+public struct Room
 {
     public Room(string name, float lightTemperatureLevel, float lightLevel, int index)
     {
@@ -11,8 +12,12 @@ public class Room
         Index = index;
     }
 
+    [SerializeField]
     public string Name;
+    [SerializeField]
     public float LightTemperatureLevel;
+    [SerializeField]
     public float LightLevel;
+    [SerializeField]
     public int Index;
 }
