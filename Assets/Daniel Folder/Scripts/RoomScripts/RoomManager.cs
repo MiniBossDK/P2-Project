@@ -1,36 +1,31 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using UnityEngine;
-using System.IO;
-using System.Linq;
 
 public class RoomManager : JsonManager<Room>
 {
-    private List<Room> _rooms;
-
     public RoomManager() : base("rooms")
     {
-        _rooms = LoadData();
+        
     }
 
     public void AddRoom(Room room)
     {
-        _rooms.Add(room);
-        SaveData(_rooms);
+        AddData(room);
     }
 
-    public void DeleteRoom(int index)
+    public void DeleteRoom(Predicate<Room> predicate)
     {
-        _rooms = LoadData();
-        var newList = _rooms.Where(r => r.Index != index).ToList();
-        _rooms = newList;
-        SaveData(newList);
+        DeleteAllData(predicate);
     }
 
     public List<Room> GetAllRooms()
     {
-        return LoadData();
+        return GetAllData();
+    }
+
+    public List<Room> GetRoom(Predicate<Room> filter)
+    {
+        return GetData(filter);
     }
 
 }

@@ -1,17 +1,28 @@
-using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using System;
 
-public class TimerManager : AbstractDataManager<Time>
+public class TimerManager : JsonManager<Timer>
 {
 
 
-    public TimerManager() : base("timer")
+    public TimerManager() : base("timers")
     {
-
+        
     }
 
+    public void AddTimer(Timer timer)
+    {
+        AddData(timer);
+    }
 
+    public void DeleteTimer(Predicate<Timer> predicate)
+    {
+        DeleteAllData(predicate);
+    }
+
+    public List<Timer> GetAllTimers()
+    {
+        return GetAllData();
+    }
 
 }
