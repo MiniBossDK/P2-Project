@@ -8,15 +8,12 @@ public class JsonManager<T>
 
     public struct Test
     {
-
         public Test(List<T> test)
         {
             TestList = test;
         }
 
-        [SerializeField]
         public List<T> TestList;
-
     }
 
 

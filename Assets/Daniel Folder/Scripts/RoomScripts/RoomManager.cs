@@ -23,11 +23,14 @@ public class RoomManager : JsonManager<Room>
     public void DeleteRoom(int index)
     {
         _rooms = LoadData();
-        Debug.Log("Before filtering: " + _rooms.Count);
         var newList = _rooms.Where(r => r.Index != index).ToList();
         _rooms = newList;
-        Debug.Log("After filtering: " + _rooms.Count);
         SaveData(newList);
+    }
+
+    public List<Room> GetAllRooms()
+    {
+        return LoadData();
     }
 
 }
