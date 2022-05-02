@@ -45,7 +45,7 @@ public class JsonManager<T>
         }
 
         var jsonData = JsonUtility.ToJson(new Test(data), true);
-        Debug.Log(jsonData);
+
         File.WriteAllText(Path, jsonData);
     }
 
