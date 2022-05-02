@@ -20,7 +20,7 @@ public class DeleteRoom : MonoBehaviour
 
     public void KillRoom()
     {
-        Destroy(transform.parent.gameObject);
+        Destroy(transform.parent.parent.gameObject);
         transform.parent = null;
     }
 }
