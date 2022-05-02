@@ -33,4 +33,7 @@ public class TimerTest : MonoBehaviour
             return unityPlayer.GetStatic<AndroidJavaObject>("currentActivity");
         }
     }
+
+    //Skal tilføjes til AndroidManifest:
+    //<uses-permission android:name="com.android.alarm.permission.SET_ALARM" />
 }
