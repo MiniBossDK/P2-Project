@@ -8,7 +8,7 @@ public class RoomArranger : MonoBehaviour
     [SerializeField]
     private float spacing;
 
-    private List<RectTransform> elements = new List<RectTransform>();
+    public List<RectTransform> elements = new List<RectTransform>();
 
     private bool HasChildrenChanged
     {
@@ -60,4 +60,5 @@ public class RoomArranger : MonoBehaviour
 
         roomContainer.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, newHeight);
     }
+
 }

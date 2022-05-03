@@ -6,37 +6,68 @@ using System.IO;
 public class JsonManager<T>
 {
 
-    public struct Test
+    private struct Data
     {
-
-        public Test(List<T> test)
+        public Data(List<T> data)
         {
-            TestList = test;
+            DataList = data;
         }
 
-        [SerializeField]
-        public List<T> TestList;
-
+        public List<T> DataList;
     }
 
-
+    private List<T> _data;
 
     private readonly string _fileName;
 
-    protected string Path => Application.dataPath + "/" + _fileName + ".json";
+    private string Path => Application.dataPath + "/" + _fileName + ".json";
 
     protected JsonManager(string fileName)
     {
         _fileName = fileName;
-        if (!File.Exists(Path))
-        {
-            Stream cr = File.Create(Path);
-            cr.Close();
-        }
-
+        _data = LoadData();
+        if (File.Exists(Path)) return;
+        Stream cr = File.Create(Path);
+        cr.Close();
+    }
+    
+    protected void AddData(IEnumerable<T> data)
+    {
+        _data.AddRange(data);
+        SaveData(_data);
+    }
+    
+    protected void AddData(T data)
+    {
+        _data.Add(data);
+        SaveData(_data);
+    }
+    
+    protected void DeleteAllData(Predicate<T> filter)
+    { 
+        _data.RemoveAll(filter);
+        SaveData(_data);
     }
 
-    protected void SaveData(List<T> data)
+    protected List<T> GetAllData()
+    {
+        _data = LoadData();
+        return _data;
+    }
+
+    protected List<T> GetData(Predicate<T> filter)
+    {
+        _data = LoadData();
+        return _data.FindAll(filter);
+    }
+
+    protected void DeleteAllData()
+    {
+        _data.Clear();
+        SaveData(_data);
+    }
+
+    private void SaveData(List<T> data)
     {
         if (!File.Exists(Path))
         {
@@ -44,18 +75,18 @@ public class JsonManager<T>
             cr.Close();
         }
 
-        var jsonData = JsonUtility.ToJson(new Test(data), true);
+        var jsonData = JsonUtility.ToJson(new Data(data), true);
 
+        _data = data;
+        
         File.WriteAllText(Path, jsonData);
     }
 
-    protected List<T> LoadData()
+    private List<T> LoadData()
     {
-        if (!File.Exists(Path))
-        {
-            Stream cr = File.Create(Path);
-            cr.Close();
-        }
-        return JsonUtility.FromJson<Test>(File.ReadAllText(Path)).TestList ?? new List<T>();
+        if (File.Exists(Path)) return JsonUtility.FromJson<Data>(File.ReadAllText(Path)).DataList ?? new List<T>();
+        Stream cr = File.Create(Path);
+        cr.Close();
+        return new List<T>();
     }
 }
