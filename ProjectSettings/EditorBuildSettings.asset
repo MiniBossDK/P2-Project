@@ -9,6 +9,17 @@ EditorBuildSettings:
     path: Assets/Main Folder/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
+<<<<<<< HEAD
     path: Assets/Sofie Folder/Scenes/DragDopFeature.unity
     guid: 055d3c664c7a99c408d3f7cc15cf00e5
+=======
+    path: Assets/Fane Scener/Settings.unity
+    guid: e707f6a17e7944631af400e97da430f2
+  - enabled: 1
+    path: Assets/Fane Scener/User Settings.unity
+    guid: b0eee2c9dad664416b5c26c8ea4f295d
+  - enabled: 1
+    path: Assets/Fane Scener/Timers.unity
+    guid: f1c2a31ea46864b9fb6b744e677312da
+>>>>>>> 56804ae33ad150325c77ae15b5a5b6b6384af5f8
   m_configObjects: {}
