@@ -25,8 +25,6 @@ public class JsonFileTest : MonoBehaviour
     [SerializeField] private string theName;
     public InputField inputField;
 
-    private string savedSceneName;
-
     void Awake()
     {
         if (LoadJson == null)
@@ -73,11 +71,6 @@ public class JsonFileTest : MonoBehaviour
 
     private void SaveData()
     {
-        //References
-        Scene scene = SceneManager.GetActiveScene();
-
-        //Scene Name
-        saveRoom.sceneName = scene.name;
 
         //Position
         saveRoom.buttonPosition = new Vector3(0,0,0);
@@ -94,14 +87,11 @@ public class JsonFileTest : MonoBehaviour
     {
         saveRoom = JsonUtility.FromJson<SaveRoom>(File.ReadAllText(Application.persistentDataPath + "/saveload.json"));
 
-        savedSceneName = saveRoom.sceneName;
-
         Vector3 position;
         position = saveRoom.buttonPosition;
         transform.position = saveRoom.buttonPosition;
 
         //For testing purposes
         Debug.Log(transform.position);
-        Debug.Log(savedSceneName);
     }
 }

@@ -210,7 +210,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   offColor: {r: 0.5849056, g: 0.5849056, b: 0.5849056, a: 1}
-  onColor: {r: 0, g: 1, b: 0.09944749, a: 1}
+  onColor: {r: 0.14901961, g: 0.6509804, b: 0.25882354, a: 1}
   circleColor: {r: 1, g: 1, b: 1, a: 1}
   _animationDuration: 0.2
-  material: {fileID: 2100000, guid: 2d176ee8ef1c848468de5b1ca7cc43b7, type: 2}

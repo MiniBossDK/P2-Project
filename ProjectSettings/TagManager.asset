@@ -6,6 +6,10 @@ TagManager:
   tags:
   - Canvas
   - Room
+<<<<<<< HEAD
+=======
+  - DeleteLocation
+>>>>>>> 56804ae33ad150325c77ae15b5a5b6b6384af5f8
   layers:
   - Default
   - TransparentFX
