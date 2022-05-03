@@ -10,7 +10,7 @@ public class DragAndDrop : MonoBehaviour
     private InputManager inputManager;
     public RoomArranger roomArranger;
     private RectTransform elmToDrag;
-    private List<Transform> passedElements = new List<Transform>();
+    private List<GameObject> passedElements = new List<GameObject>();
     private Vector3 initialPosition;
     public TextMeshProUGUI debugText;
     public TextMeshProUGUI debugText2;
@@ -20,6 +20,7 @@ public class DragAndDrop : MonoBehaviour
 
     void Start()
     {
+        passedElements.Add(gameObject);
         inputManager = InputManager.Instance;
         inputManager.StartHoldEvent += SetMoveableElement;
         inputManager.PerformedHoldEvent += MoveElement;
@@ -56,23 +57,46 @@ public class DragAndDrop : MonoBehaviour
             elmToDrag.transform.position = new Vector3(elmToDrag.transform.position.x, ray.GetPoint(initialDistance).y, ray.GetPoint(initialDistance).z);
             /*elmToDrag.transform.position = Vector3.SmoothDamp(elmToDrag.transform.position, new Vector3(elmToDrag.transform.position.x, ray.GetPoint(initialDistance).y, ray.GetPoint(initialDistance).z),
                ref velocity, speed);*/
+            Ray r = Camera.main.ScreenPointToRay(pos);
+            RaycastHit2D Hit2 = Physics2D.GetRayIntersection(r);
+            if (Hit.collider != null && Hit.collider != elmToDrag)
+            {
+                GameObject HitObject = Hit.collider.gameObject;
+                foreach(GameObject room in passedElements)
+                {
+                    if(room.gameObject != elmToDrag.gameObject)
+                    {
+                            if (ray.GetPoint(initialDistance).y <= HitObject.transform.position.y)
+                                passedElements.Add(HitObject);
+                        }
+                    }
+                }
+                Debug.Log(passedElements.Count);
+            }
         }
     }
+
+
+           /* if (Hit.collider != null && Hit.collider != elmToDrag.GetComponent<Collider>())
+            {
+                for (int i = 0; passedElements.Count > i; i++)
+                {
+                    if (Hit.collider.gameObject.transform != passedElements[i])
+                    {
+                        passedElements.Add(Hit.collider.gameObject.GetComponent<Transform>());
+                    }
+                     Debug.Log(passedElements.Count);
+                }
+               
+            }*/
 
     private void SetElementPosition(Vector2 pos)
     {
         Debug.Log("canceled");
+        elmToDrag = null;
         if(elmToDrag != null)
         {
-            Debug.Log(SetRoomToSwitchElm(elmToDrag));
-            if (SetRoomToSwitchElm(elmToDrag) != null)
-            {
-                RectTransform RoomForSwitch = SetRoomToSwitchElm(elmToDrag);
-                elmToDrag.transform.position = RoomForSwitch.position;
-                RoomForSwitch.transform.position = initialPosition;
-            }
-            
-            elmToDrag = null;
+
         }
     }
 
@@ -101,20 +125,3 @@ public class DragAndDrop : MonoBehaviour
     }
 }
 
-/*RectTransform roomToSwitch = null;
-            Vector2 smallestDistance = new Vector2(20000, 20000);
-            foreach (RectTransform roomTransform in roomArranger.elements)
-            {
-                Vector2 distance = new Vector2(pos.x - roomTransform.position.x, pos.y - roomTransform.position.y);
-                if (distance.x <= smallestDistance.x && distance.y <= smallestDistance.y && roomTransform.position != elmToDrag.position)
-                {
-                    roomToSwitch = roomTransform;
-                }
-            }
-            elmToDrag.transform.position = roomToSwitch.transform.position;
-            elmToDrag = null;
-
-            //elmToDrag.transform.position = room.transform.position;
-            //room.transform.position = elmToDrag.transform.position;
-
-        }*/
