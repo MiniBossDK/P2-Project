@@ -66,7 +66,7 @@ public class DragAndDrop : MonoBehaviour
                 {
                     if(room.gameObject != elmToDrag.gameObject)
                     {
-                            if (ray.GetPoint(initialDistance).y <= HitObject.transform.position.y)
+                            if (ray.GetPoint(initialDistance).y > HitObject.transform.position.y)
                                 passedElements.Add(HitObject);
                         }
                     }
