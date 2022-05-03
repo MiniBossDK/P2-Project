@@ -13,9 +13,6 @@ public class InputManager : SingletonPattern<InputManager>
     public delegate void PerformedHold(Vector2 pos);
     public event PerformedHold PerformedHoldEvent;
 
-    public delegate void PerformedInput(Vector2 pos);
-    public event PerformedHold PerformedInputEvent;
-
     public delegate void EndHold(Vector2 pos);
     public event EndHold EndHoldEvent;
 
@@ -24,7 +21,6 @@ public class InputManager : SingletonPattern<InputManager>
 
     void Start()
     {
-
         input.TouchControls.TouchPress.canceled += ctx => OnEndHold(ctx);
         input.TouchControls.TouchHold.performed += ctx => OnStartHold(ctx);
         input.TouchControls.TouchInput.performed += ctx => OnPerformedHold(ctx);
