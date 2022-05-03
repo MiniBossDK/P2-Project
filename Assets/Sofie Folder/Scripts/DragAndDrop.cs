@@ -74,7 +74,8 @@ public class DragAndDrop : MonoBehaviour
                 Debug.Log(passedElements.Count);
             }
         }
-    }
+    
+
 
 
            /* if (Hit.collider != null && Hit.collider != elmToDrag.GetComponent<Collider>())
