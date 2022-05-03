@@ -61,19 +61,14 @@ public class DragAndDrop : MonoBehaviour
             RaycastHit2D Hit2 = Physics2D.GetRayIntersection(r);
             if (Hit.collider != null && Hit.collider != elmToDrag)
             {
-                GameObject HitObject = Hit.collider.gameObject;
-                foreach(GameObject room in passedElements)
+                if (passedElements.Contains(Hit.collider.gameObject) == false)
                 {
-                    if(room.gameObject != elmToDrag.gameObject)
-                    {
-                            if (ray.GetPoint(initialDistance).y > HitObject.transform.position.y)
-                                passedElements.Add(HitObject);
-                        }
-                    }
+                    passedElements.Add(Hit.collider.gameObject);
+                    Debug.Log(passedElements.Count);
                 }
-                Debug.Log(passedElements.Count);
             }
         }
+    }
     
 
 
