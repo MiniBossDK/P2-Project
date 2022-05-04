@@ -36,7 +36,7 @@ public class ScrollSnap : MonoBehaviour
             scrollElements[i] = scrollRect.content.GetChild(i).GetComponent<RectTransform>();
         }
 
-        spacing = (int) Mathf.Abs(scrollElements[0].position.y - scrollElements[1].position.y);
+        spacing = (int)Mathf.Abs(scrollElements[0].position.y - scrollElements[1].position.y);
 
         inputManager.PerformedHoldEvent += OnDrag;
         inputManager.EndHoldEvent += OnStoppedDrag;
@@ -48,14 +48,11 @@ public class ScrollSnap : MonoBehaviour
 
     private void OnScroll(Vector2 pos)
     {
-        var elem = FindClosestElementToCenter();
-        if (isDragging) return;
-        Debug.Log(spacing);
-        Lerp(elem * -spacing);
-        
-        
+        //var elem = FindClosestElementToCenter();
+
+
         //scrollRect.content.anchoredPosition = new Vector2(scrollRect.content.anchoredPosition.x, elem.anchoredPosition.y);
-        
+
         //StartCoroutine(Lerp(scrollRect.content, elem.anchoredPosition.y, scrollContentCenter.y, duration));
 
 
@@ -81,12 +78,12 @@ public class ScrollSnap : MonoBehaviour
         */
     }
 
-    private int FindClosestElementToCenter()
+    /*
+    private RectTransform FindClosestElementToCenter()
     {
         //var closestElem = scrollElements[0];
         var closestDistToCenter = Mathf.Abs(scrollElements[0].position.y - scrollContentCenter.y);
-        int smallestIndex = 0;
-        
+
         for (int i = 1; i < scrollElements.Length; i++)
         {
             var distToCenter = Mathf.Abs(scrollElements[i].position.y - scrollContentCenter.y);
@@ -98,6 +95,7 @@ public class ScrollSnap : MonoBehaviour
 
         return smallestIndex;
     }
+    */
 
     private void OnDrag(Vector2 pos)
     {
