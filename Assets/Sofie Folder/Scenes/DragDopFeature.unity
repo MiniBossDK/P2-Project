@@ -323,6 +323,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea77e8d03b0287a48a59bb518df2bcfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  roomArranger: {fileID: 0}
   debugText: {fileID: 1375801515}
   debugText2: {fileID: 1115554982}
 --- !u!114 &130227230
@@ -358,6 +359,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 192336009}
     m_Modifications:
+    - target: {fileID: 1889562076, guid: 7ec5386aee5c41f49b8b7a9b5cc6057b, type: 3}
+      propertyPath: roomContainer
+      value: 
+      objectReference: {fileID: 192336008}
     - target: {fileID: 1842391434064580929, guid: 7ec5386aee5c41f49b8b7a9b5cc6057b, type: 3}
       propertyPath: m_Padding.m_Top
       value: 80
@@ -996,10 +1001,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2891535372879378726, guid: c0a9dc2e2b50eef4ca0f37bfdb98c46d, type: 3}
       propertyPath: m_Name
-      value: Room
-      objectReference: {fileID: 0}
-    - target: {fileID: 2891535372879378726, guid: c0a9dc2e2b50eef4ca0f37bfdb98c46d, type: 3}
-      propertyPath: m_TagString
       value: Room
       objectReference: {fileID: 0}
     - target: {fileID: 2891535373206856052, guid: c0a9dc2e2b50eef4ca0f37bfdb98c46d, type: 3}
@@ -2029,42 +2030,11 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1750, y: 460}
   m_EdgeRadius: 0
---- !u!1 &1328717885 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2891535372879378726, guid: c0a9dc2e2b50eef4ca0f37bfdb98c46d, type: 3}
-  m_PrefabInstance: {fileID: 541181023}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &1328717886 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2891535373453215105, guid: c0a9dc2e2b50eef4ca0f37bfdb98c46d, type: 3}
   m_PrefabInstance: {fileID: 541181023}
   m_PrefabAsset: {fileID: 0}
---- !u!61 &1328717891
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1328717885}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 3.6}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1750, y: 460}
-  m_EdgeRadius: 0
 --- !u!1 &1375801513
 GameObject:
   m_ObjectHideFlags: 0

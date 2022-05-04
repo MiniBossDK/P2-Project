@@ -102,7 +102,7 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
                     ""name"": """",
                     ""id"": ""241d71b2-e75b-40c8-bd68-b552bd96a0c8"",
                     ""path"": ""<Touchscreen>/primaryTouch/press"",
-                    ""interactions"": ""Hold"",
+                    ""interactions"": ""Hold(duration=0.8)"",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""TouchHold"",

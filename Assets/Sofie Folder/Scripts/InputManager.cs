@@ -21,8 +21,8 @@ public class InputManager : SingletonPattern<InputManager>
 
     void Start()
     {
-        input.TouchControls.TouchPress.started += ctx => OnStartHold(ctx);
         input.TouchControls.TouchPress.canceled += ctx => OnEndHold(ctx);
+        input.TouchControls.TouchHold.performed += ctx => OnStartHold(ctx);
         input.TouchControls.TouchInput.performed += ctx => OnPerformedHold(ctx);
 
     }
