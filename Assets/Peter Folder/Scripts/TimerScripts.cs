@@ -44,7 +44,7 @@ public class TimerScripts : MonoBehaviour
         if (isAlarmSet && DateTime.Now > alarmTime)
         {
             Debug.Log("Unreal er bedre");
-            //Later functionality to be implemented
+            //Actual functionality to be implemented
         }
         
     }
