@@ -5,22 +5,40 @@ using UnityEngine.UI;
 
 public class DeleteRoom : MonoBehaviour
 {
-    [SerializeField] private Button button;
+    [SerializeField] private List<Button> button = new List<Button>();
+    [SerializeField] private GameObject deleteMessage;
+    [SerializeField] private Button deleteButton;
+    [SerializeField] private Button cancelButton;
     // Start is called before the first frame update
     void Start()
     {
-        button.onClick.AddListener(KillRoom);
+        //button.AddRange(GameObject.FindGameObjectsWithTag("DeleteButton"));
+        deleteMessage.SetActive(false);
+        cancelButton.onClick.AddListener(CloseDeleteMessage);
+        DeleteRoomsInScene();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void DeleteRoomsInScene()
     {
-        
+        foreach (Button button in button)
+        {
+            button.onClick.AddListener((delegate { OpenDeleteMessage(button); })); ;
+        }
     }
 
-    public void KillRoom()
+    private void OpenDeleteMessage(Button roomDeleteButton)
     {
-        Destroy(transform.parent.parent.gameObject);
-        transform.parent = null;
+        deleteMessage.SetActive(true);
+        deleteButton.onClick.AddListener((delegate { KillRoom(roomDeleteButton.transform.parent.parent.parent.parent.gameObject); }));
+    }
+
+    private void CloseDeleteMessage()
+    {
+        deleteMessage.SetActive(false);
+    }
+    public void KillRoom(GameObject obj)
+    {
+        Destroy(obj);
+        CloseDeleteMessage();
     }
 }
