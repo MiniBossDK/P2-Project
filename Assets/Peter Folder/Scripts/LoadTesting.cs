@@ -15,7 +15,7 @@ public class LoadTesting : MonoBehaviour
 
     private void TestNav()
     {
-        SceneChangeManager.LoadScene("AddRoomTest");
+        SceneManager.LoadScene("AddRoomTest");
     }
     
 }

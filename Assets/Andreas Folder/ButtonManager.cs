@@ -11,7 +11,7 @@ public class ButtonManager : MonoBehaviour
     /// <param name="ButtonScene"> The name of the scene to change to </param>
     public void ButtonMoveScene(string ButtonScene)
     {
-        SceneChangeManager.LoadScene(ButtonScene);
+        SceneManager.LoadScene(ButtonScene);
     }
 
 }

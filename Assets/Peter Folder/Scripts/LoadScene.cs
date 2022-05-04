@@ -15,6 +15,6 @@ public class LoadScene : MonoBehaviour
 
     private void DirectToScene()
     {
-        SceneChangeManager.LoadScene("Settings");
+        SceneManager.LoadScene("Settings");
     }
 }
