@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,10 +11,15 @@ public class ScrollSnap : MonoBehaviour
 
     private InputManager inputManager;
     private bool isDragging = false;
+    private int spacing;
 
     private RectTransform[] scrollElements;
+    private float timeElapsed = 0;
+    [Range(1, 10)]
+    [Header("Animation duration")]
+    [SerializeField] private float duration;
 
-
+    private bool isAnimating = false;
 
     private void Awake()
     {
@@ -30,6 +36,7 @@ public class ScrollSnap : MonoBehaviour
             scrollElements[i] = scrollRect.content.GetChild(i).GetComponent<RectTransform>();
         }
 
+        spacing = (int) Mathf.Abs(scrollElements[0].position.y - scrollElements[1].position.y);
 
         inputManager.PerformedHoldEvent += OnDrag;
         inputManager.EndHoldEvent += OnStoppedDrag;
@@ -41,31 +48,55 @@ public class ScrollSnap : MonoBehaviour
 
     private void OnScroll(Vector2 pos)
     {
+        var elem = FindClosestElementToCenter();
+        if (isDragging) return;
+        Debug.Log(spacing);
+        Lerp(elem * -spacing);
+        
+        
+        //scrollRect.content.anchoredPosition = new Vector2(scrollRect.content.anchoredPosition.x, elem.anchoredPosition.y);
+        
+        //StartCoroutine(Lerp(scrollRect.content, elem.anchoredPosition.y, scrollContentCenter.y, duration));
 
-        if (!isDragging)
-        {
-            var velocity = scrollRect.velocity;
-            if ((velocity.y < 5 || velocity.y > -5) && velocity.y != 0)
-            {
-                Debug.Log(FindClosestElementToCenter().name);
-            }
-        }
+
+        /*
+        
+        
+        StartCoroutine(Lerp(scrollRect.content, position.y, scrollContentCenter.y, duration));
+        */
+        /*
+        scrollRect.content.position = new Vector3(position.x, Mathf.Lerp(position.y, scrollContentCenter.y, timeElapsed / duration), 0);
+
+        timeElapsed += Time.deltaTime;
+        */
+
+
+
+        /*
+        Debug.Log(new Vector3(position.x, Mathf.Lerp(position.y, scrollContentCenter.y, timeElapsed / duration), 0));
+        
+        scrollRect.content.position = new Vector3(position.x, Mathf.Lerp(position.y, scrollContentCenter.y, timeElapsed / duration), 0);
+
+        timeElapsed += Time.deltaTime;
+        */
     }
 
-    private RectTransform FindClosestElementToCenter()
+    private int FindClosestElementToCenter()
     {
-        RectTransform closestElem = scrollElements[0];
-        float closestPos = scrollElements[0].anchoredPosition.y - scrollContentCenter.y;
+        //var closestElem = scrollElements[0];
+        var closestDistToCenter = Mathf.Abs(scrollElements[0].position.y - scrollContentCenter.y);
+        int smallestIndex = 0;
+        
         for (int i = 1; i < scrollElements.Length; i++)
         {
-            float distToCenter = Mathf.Abs(scrollElements[i].anchoredPosition.y - scrollContentCenter.y);
-            if (distToCenter < closestElem.anchoredPosition.y)
-            {
-                closestElem = scrollElements[i];
-            }
+            var distToCenter = Mathf.Abs(scrollElements[i].position.y - scrollContentCenter.y);
+            if (!(distToCenter < closestDistToCenter)) continue;
+            smallestIndex = i;
+            //closestElem = scrollElements[i];
+            closestDistToCenter = distToCenter;
         }
 
-        return closestElem;
+        return smallestIndex;
     }
 
     private void OnDrag(Vector2 pos)
@@ -78,8 +109,11 @@ public class ScrollSnap : MonoBehaviour
         isDragging = false;
     }
 
-    private void LerpToPosition(Vector2 targetPos, float duration)
+    private void Lerp(int position)
     {
-
+        var position1 = transform.position;
+        float newX = Mathf.Lerp(position1.x, position, Time.deltaTime * 10f);
+        Vector2 newPosition = new Vector2(newX, position1.y);
+        scrollRect.content.position = newPosition;
     }
 }
