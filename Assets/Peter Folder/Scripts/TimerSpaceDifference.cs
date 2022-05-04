@@ -4,23 +4,18 @@ using UnityEngine;
 
 public class TimerSpaceDifference : MonoBehaviour
 {
-    //[SerializeField] private RoomArranger listGetter;
-    public List<GameObject> bodyList = new List<GameObject>();
 
-    [SerializeField] GameObject spacer;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
 
     // Update is called once per frame
     void Update()
     {
-        CheckIfActive();
+        //CheckIfActive();
+ 
     }
 
+
+
+    /*
     private void CheckIfActive()
     {
         bodyList.AddRange(GameObject.FindGameObjectsWithTag("Body"));
@@ -29,10 +24,12 @@ public class TimerSpaceDifference : MonoBehaviour
         {
             foreach (GameObject bodyContent in bodyList)
             {
-                
-                bodyContent.transform.SetSiblingIndex(bodyContent.transform.parent.gameObject.transform.GetSiblingIndex()+1);
+
+                    bodyContent.transform.SetSiblingIndex(bodyContent.transform.parent.gameObject.transform.GetSiblingIndex() + 1);
+
             }
         }
 
-    }
+    }*/
+
 }
