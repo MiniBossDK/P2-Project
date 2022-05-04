@@ -14,6 +14,7 @@ public class DragAndDrop : MonoBehaviour
     private RectTransform elmToDrag;
     private List<Transform> passedElements = new List<Transform>();
     private Vector3 initialPosition;
+    int initialIndex;
     public TextMeshProUGUI debugText;
     public TextMeshProUGUI debugText2;
     private float speed = .1f;
@@ -44,9 +45,9 @@ public class DragAndDrop : MonoBehaviour
             Debug.Log("Started");
             elmToDrag = Hit.collider.gameObject.GetComponent<RectTransform>();
             initialPosition = elmToDrag.transform.position;
+            initialIndex = elmToDrag.transform.GetSiblingIndex();
         }
     }
-
     private void MoveElement(Vector2 pos)
     {
         if (elmToDrag != null)
@@ -54,7 +55,7 @@ public class DragAndDrop : MonoBehaviour
             Debug.Log(passedElements.Count);
             Debug.Log("performed");
             scrollbar.vertical = false;
-            
+            Debug.Log(elmToDrag.GetSiblingIndex());
             float initialDistance = Vector3.Distance(elmToDrag.position, Camera.main.transform.position);
             Ray ray = Camera.main.ScreenPointToRay(pos);
             RaycastHit2D Hit = Physics2D.GetRayIntersection(ray);
@@ -64,12 +65,17 @@ public class DragAndDrop : MonoBehaviour
             {
                 if (!passedElements.Contains(Hit.collider.gameObject.transform))
                 {
-                    if(ray.GetPoint(initialDistance).y > Hit.collider.transform.position.y)
+                    if(elmToDrag.transform.position.y > Hit.collider.transform.position.y)
                     {
                         passedElements.Add(Hit.collider.gameObject.transform);
                         elmToDrag.SetSiblingIndex(elmToDrag.GetSiblingIndex() + 1);
-                    }
+                        Debug.Log(passedElements[2].GetSiblingIndex());
 
+                    } else if (elmToDrag.transform.position.y < Hit.collider.transform.position.y)
+                    {
+                        passedElements.Add(Hit.collider.gameObject.transform);
+                        elmToDrag.SetSiblingIndex(elmToDrag.GetSiblingIndex() - 1);
+                    }
                 }
             }
         }
@@ -80,32 +86,33 @@ public class DragAndDrop : MonoBehaviour
         if(elmToDrag != null)
         {
             SetRoomToSwitchElm(elmToDrag);
+            passedElements.Clear();
             elmToDrag = null;
         }
     }
 
     private void SetRoomToSwitchElm(RectTransform elmToDrag)
     {
-            RectTransform roomToSwitch = null;
-            for (int i = 0; passedElements.Count > i; i++)
+        RectTransform roomToSwitch = null;
+        float smallestDistance = Vector3.Distance(initialPosition, elmToDrag.transform.position);
+        Debug.Log(smallestDistance);
+        for (int i = 0; roomArranger.elements.Count > i; i++)
+        {
+            if (roomArranger.elements[i].gameObject != elmToDrag.gameObject)
             {
-                float smallestDistance = Vector3.Distance(initialPosition, elmToDrag.transform.position);
-                Debug.Log(smallestDistance);
-                if (passedElements[i].gameObject != elmToDrag.gameObject)
+                if (Vector3.Distance(elmToDrag.transform.position, roomArranger.elements[i].transform.position) < smallestDistance)
                 {
-                    if (Vector3.Distance(elmToDrag.transform.position, passedElements[i].transform.position) < smallestDistance)
-                    {
-                        roomToSwitch = roomArranger.elements[i];
-                        Debug.Log(smallestDistance);
-                        elmToDrag.SetSiblingIndex(roomToSwitch.GetSiblingIndex());
-                    }
+                    smallestDistance = Vector3.Distance(elmToDrag.transform.position, roomArranger.elements[i].transform.position);
+                    roomToSwitch = roomArranger.elements[i];
+                    elmToDrag.SetSiblingIndex(roomToSwitch.GetSiblingIndex());
                 }
-                else
-                {
-                    elmToDrag.position = initialPosition;
-                }
+            } else
+            {
+                elmToDrag.position = initialPosition;
+                elmToDrag.SetSiblingIndex(initialIndex);
             }
         }
     }
+}
 
 

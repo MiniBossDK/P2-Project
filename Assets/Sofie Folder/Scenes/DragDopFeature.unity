@@ -323,7 +323,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea77e8d03b0287a48a59bb518df2bcfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roomArranger: {fileID: 0}
+  scrollbar: {fileID: 1540940058}
+  roomArranger: {fileID: 192336010}
   debugText: {fileID: 1375801515}
   debugText2: {fileID: 1115554982}
 --- !u!114 &130227230
