@@ -75,6 +75,7 @@ public class DragAndDrop : MonoBehaviour
                     {
                         passedElements.Add(Hit.collider.gameObject.transform);
                         elmToDrag.SetSiblingIndex(elmToDrag.GetSiblingIndex() - 1);
+                        passedElements.RemoveAt(passedElements.Count);
                     }
                 }
             }
