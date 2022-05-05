@@ -364,6 +364,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CheckmarkButton
       objectReference: {fileID: 0}
+    - target: {fileID: 5543350717249782112, guid: 81911a8656294b143966a3e0b671f2ee, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 5543350717249782124, guid: 81911a8656294b143966a3e0b671f2ee, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
