@@ -17,6 +17,7 @@ public class EditBehaviour : MonoBehaviour
     [SerializeField] private Button checkmark;
     [SerializeField] private TextMeshProUGUI title;
     private string originalTitle;
+    public GameObject popUpWindow;
 
     void Start()
     {
@@ -40,6 +41,7 @@ public class EditBehaviour : MonoBehaviour
 
     private void EditRooms()
     {
+        rooms.Clear();
         title.text = "Edit" + originalTitle;
         checkmark.gameObject.SetActive(true);
         checkmark.onClick.AddListener(KillMinusButton);
