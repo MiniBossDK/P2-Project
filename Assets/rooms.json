@@ -55,6 +55,13 @@
             "LightTemperatureLevel": 0.0,
             "LightLevel": 0.0,
             "Index": 0
+        },
+        {
+            "ID": "9a6105ef-3ff1-4d01-9e34-defea1365524",
+            "Name": "Living Room",
+            "LightTemperatureLevel": 0.0,
+            "LightLevel": 0.0,
+            "Index": 0
         }
     ]
 }
