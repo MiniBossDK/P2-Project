@@ -18,14 +18,11 @@ public class EditBehaviour : MonoBehaviour
     [SerializeField] private TextMeshProUGUI title;
     private string originalTitle;
 
-
-
-
-
     void Start()
     {
         button.onClick.AddListener(EditRooms);
         originalTitle = title.text;
+        checkmark.gameObject.SetActive(false);
     }
 
     private void Awake()
