@@ -9,6 +9,8 @@ public class EditBehaviour : MonoBehaviour
     public List<GameObject> rooms = new List<GameObject>();
     public List<GameObject> deleteLocation = new List<GameObject>();
 
+    private string[] tags = new string[3] { "Room", "Scenes", "LightSources" };
+
     [SerializeField] private Button button;
     [SerializeField] Button minusButton;
     [SerializeField] private Button checkmark;
@@ -50,9 +52,12 @@ public class EditBehaviour : MonoBehaviour
 
     private void EditRooms()
     {
-        foreach (GameObject ro in GameObject.FindGameObjectsWithTag("Room"))
+        foreach(string tag in tags)
         {
-            rooms.Add(ro);
+            foreach (GameObject ro in GameObject.FindGameObjectsWithTag(tag))
+            {
+                rooms.Add(ro);
+            }
         }
 
         foreach (GameObject dl in GameObject.FindGameObjectsWithTag("DeleteLocation"))
