@@ -9,6 +9,8 @@ TagManager:
   - Pis
   - DeleteButton
   - LightSources
+  - Scenes
+  - DeleteLocation
   layers:
   - Default
   - TransparentFX
