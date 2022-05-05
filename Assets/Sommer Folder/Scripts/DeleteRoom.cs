@@ -28,12 +28,12 @@ public class DeleteRoom : MonoBehaviour
 
     private void OpenDeleteMessage()
     {
-       // deleteMessage.SetActive(true);
-        //deleteButton = GameObject.FindGameObjectWithTag("DeleteButton").GetComponent<Button>();
-        //cancelButton = GameObject.FindGameObjectWithTag("CancelButton").GetComponent<Button>();
-        //deleteButton.onClick.AddListener(KillRoom);
-        //cancelButton.onClick.AddListener(CloseDeleteMessage);
-        button.onClick.AddListener(KillRoom);
+        deleteMessage.SetActive(true);
+        deleteButton = GameObject.FindGameObjectWithTag("DeleteButton").GetComponent<Button>();
+        cancelButton = GameObject.FindGameObjectWithTag("CancelButton").GetComponent<Button>();
+        deleteButton.onClick.AddListener(KillRoom);
+        cancelButton.onClick.AddListener(CloseDeleteMessage);
+        //button.onClick.AddListener(KillRoom);
 
     }
 
@@ -44,8 +44,8 @@ public class DeleteRoom : MonoBehaviour
     }
     public void KillRoom()
     {
-        Destroy(button.transform.parent.parent.parent.parent.gameObject);
         string id = button.transform.parent.parent.parent.parent.gameObject.name;
+        Destroy(button.transform.parent.parent.parent.parent.gameObject);
         roomManager.DeleteRoom(room => room.ID == id);
         CloseDeleteMessage();
     }

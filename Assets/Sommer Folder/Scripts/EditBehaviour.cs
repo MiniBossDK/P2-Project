@@ -33,8 +33,8 @@ public class EditBehaviour : MonoBehaviour
             rooms.Clear();
             deleteLocation.Clear();
         }
-        checkmark.gameObject.SetActive(false);
         popUpWindow.SetActive(false);
+        checkmark.gameObject.SetActive(false);
         title.text = originalTitle;
     }
 
