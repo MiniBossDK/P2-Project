@@ -44,8 +44,8 @@ public class DeleteRoom : MonoBehaviour
     }
     public void KillRoom()
     {
-        Destroy(button.transform.parent.parent.parent.parent.gameObject);
         string id = button.transform.parent.parent.parent.parent.gameObject.name;
+        Destroy(button.transform.parent.parent.parent.parent.gameObject);
         roomManager.DeleteRoom(room => room.ID == id);
         CloseDeleteMessage();
     }
