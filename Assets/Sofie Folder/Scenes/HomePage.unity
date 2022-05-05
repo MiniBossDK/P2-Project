@@ -748,7 +748,7 @@ GameObject:
   - component: {fileID: 673294030}
   - component: {fileID: 673294029}
   m_Layer: 5
-  m_Name: MasterRoomToggle
+  m_Name: EditRoom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3312,22 +3312,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 5324837150477042442, guid: 6762a374d73533c4097294ab33d8a141, type: 3}
   m_PrefabInstance: {fileID: 2105696606}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &7985258656207078977
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7985258656207078987}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46b3c81a99ec15448a103c558a8c2459, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  offColor: {r: 0.5849056, g: 0.5849056, b: 0.5849056, a: 1}
-  onColor: {r: 0.14901961, g: 0.6509804, b: 0.25882354, a: 1}
-  circleColor: {r: 1, g: 1, b: 1, a: 1}
-  _animationDuration: 0.2
 --- !u!224 &7985258656207078986
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3358,10 +3342,10 @@ GameObject:
   - component: {fileID: 7985258656207078986}
   - component: {fileID: 7985258656207078991}
   - component: {fileID: 7985258656207078988}
+  - component: {fileID: 7985258656207078989}
   - component: {fileID: 7985258656207078990}
-  - component: {fileID: 7985258656207078977}
   m_Layer: 5
-  m_Name: ToggleButton
+  m_Name: EditRomButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3397,6 +3381,20 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &7985258656207078989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7985258656207078987}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb8d5864871f53c45b939904849982fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  editButton: {fileID: 7985258656207078990}
+  isOn: 0
 --- !u!114 &7985258656207078990
 MonoBehaviour:
   m_ObjectHideFlags: 0
