@@ -3,20 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class DeleteRoom : MonoBehaviour
+public class DeleteLight : MonoBehaviour
 {
     [SerializeField] private Button button;
     [SerializeField] private GameObject deleteMessage;
     [SerializeField] private Button deleteButton;
     [SerializeField] private Button cancelButton;
     [SerializeField] private EditBehaviour editBehaviour;
-    private RoomManager roomManager;
+    
     //  [SerializeField]private EditBehaviour editBehaviour;
     // Start is called before the first frame update
-    private void Awake()
-    {
-        roomManager = new RoomManager();
-    }
 
     void Start()
     {
@@ -31,7 +27,7 @@ public class DeleteRoom : MonoBehaviour
         deleteMessage.SetActive(true);
         deleteButton = GameObject.FindGameObjectWithTag("DeleteButton").GetComponent<Button>();
         cancelButton = GameObject.FindGameObjectWithTag("CancelButton").GetComponent<Button>();
-        deleteButton.onClick.AddListener(KillRoom);
+        deleteButton.onClick.AddListener(KillTimer);
         cancelButton.onClick.AddListener(CloseDeleteMessage);
         //button.onClick.AddListener(KillRoom);
 
@@ -40,13 +36,11 @@ public class DeleteRoom : MonoBehaviour
     private void CloseDeleteMessage()
     {
         deleteMessage.SetActive(false);
-        
+
     }
-    public void KillRoom()
+    public void KillTimer()
     {
-        string id = button.transform.parent.parent.parent.parent.gameObject.name;
-        Destroy(button.transform.parent.parent.parent.parent.gameObject);
-        roomManager.DeleteRoom(room => room.ID == id);
+        Destroy(button.transform.parent.parent.gameObject);
         CloseDeleteMessage();
     }
 

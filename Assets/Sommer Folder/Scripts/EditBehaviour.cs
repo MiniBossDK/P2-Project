@@ -1,5 +1,3 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -17,6 +15,7 @@ public class EditBehaviour : MonoBehaviour
     [SerializeField] private Button checkmark;
     [SerializeField] private TextMeshProUGUI title;
     private string originalTitle;
+    public GameObject popUpWindow;
 
     void Start()
     {
@@ -34,12 +33,14 @@ public class EditBehaviour : MonoBehaviour
             rooms.Clear();
             deleteLocation.Clear();
         }
+        popUpWindow.SetActive(false);
         checkmark.gameObject.SetActive(false);
         title.text = originalTitle;
     }
 
     private void EditRooms()
     {
+        rooms.Clear();
         title.text = "Edit" + originalTitle;
         checkmark.gameObject.SetActive(true);
         checkmark.onClick.AddListener(KillMinusButton);
@@ -47,8 +48,10 @@ public class EditBehaviour : MonoBehaviour
         {
             foreach (GameObject ro in GameObject.FindGameObjectsWithTag(tag))
             {
-                rooms.Add(ro);
-                Debug.Log(rooms.Count);
+                if (!rooms.Contains(ro))
+                {
+                    rooms.Add(ro);
+                }
             }
         }
 
