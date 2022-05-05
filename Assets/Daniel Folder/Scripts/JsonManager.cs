@@ -44,8 +44,8 @@ public class JsonManager<T>
     }
     
     protected void DeleteAllData(Predicate<T> filter)
-    { 
-        _data.RemoveAll(filter);
+    {
+        Debug.Log(_data.RemoveAll(filter));
         SaveData(_data);
     }
 
