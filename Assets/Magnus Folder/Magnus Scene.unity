@@ -13152,6 +13152,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1748195931}
     m_Modifications:
+    - target: {fileID: 481200022151423730, guid: 1252aec288a7df04385a457939d5e3a5, type: 3}
+      propertyPath: m_TagString
+      value: DeleteLocation
+      objectReference: {fileID: 0}
     - target: {fileID: 661412032858880302, guid: 1252aec288a7df04385a457939d5e3a5, type: 3}
       propertyPath: m_Name
       value: LightSource
