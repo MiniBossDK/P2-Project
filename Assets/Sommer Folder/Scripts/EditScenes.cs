@@ -18,6 +18,6 @@ public class EditScenes : MonoBehaviour
 
     private void LoadEditScene()
     {
-        changementDeCadre.LoadNextScene();
+        //changementDeCadre.LoadNextScene();
     }
 }
