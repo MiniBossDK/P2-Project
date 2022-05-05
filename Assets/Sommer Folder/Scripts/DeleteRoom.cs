@@ -5,40 +5,40 @@ using UnityEngine.UI;
 
 public class DeleteRoom : MonoBehaviour
 {
-    [SerializeField] private List<Button> button = new List<Button>();
+    [SerializeField] private Button button;
     [SerializeField] private GameObject deleteMessage;
     [SerializeField] private Button deleteButton;
     [SerializeField] private Button cancelButton;
+    [SerializeField] private EditBehaviour editBehaviour;
+    [SerializeField] private RoomManager roomManager;
+  //  [SerializeField]private EditBehaviour editBehaviour;
     // Start is called before the first frame update
     void Start()
     {
-        //button.AddRange(GameObject.FindGameObjectsWithTag("DeleteButton"));
-        deleteMessage.SetActive(false);
-        cancelButton.onClick.AddListener(CloseDeleteMessage);
-        DeleteRoomsInScene();
+        editBehaviour = GameObject.FindGameObjectWithTag("Manager").GetComponent<EditBehaviour>();
+        deleteMessage = editBehaviour.popUpWindow;
+        button.onClick.AddListener(OpenDeleteMessage); ;
     }
 
-    private void DeleteRoomsInScene()
-    {
-        foreach (Button button in button)
-        {
-            button.onClick.AddListener((delegate { OpenDeleteMessage(button); })); ;
-        }
-    }
 
-    private void OpenDeleteMessage(Button roomDeleteButton)
+    private void OpenDeleteMessage()
     {
         deleteMessage.SetActive(true);
-        deleteButton.onClick.AddListener((delegate { KillRoom(roomDeleteButton.transform.parent.parent.parent.parent.gameObject); }));
+        deleteButton = GameObject.FindGameObjectWithTag("DeleteButton").GetComponent<Button>();
+        cancelButton = GameObject.FindGameObjectWithTag("CancelButton").GetComponent<Button>();
+        deleteButton.onClick.AddListener(KillRoom);
+        cancelButton.onClick.AddListener(CloseDeleteMessage);
+
     }
 
     private void CloseDeleteMessage()
     {
         deleteMessage.SetActive(false);
+        
     }
-    public void KillRoom(GameObject obj)
+    public void KillRoom()
     {
-        Destroy(obj);
+        Destroy(button.transform.parent.parent.parent.parent.gameObject);
         CloseDeleteMessage();
     }
 

@@ -1,11 +1,12 @@
 using System;
 using UnityEngine;
 using System.Collections.Generic;
+using System.Linq;
 
 [Serializable]
 public struct Timer
 {
-    public Timer(Guid id, string name, TimerType type, int startTime, int endTime, List<WeekDay> weekDays, List<Room> enabledRooms)
+    public Timer(Guid id, string name, TimerType type, int startTime, int endTime, List<WeekDay> weekDays, List<Guid> enabledRooms)
     {
         ID = id.ToString();
         Name = name;
@@ -13,7 +14,7 @@ public struct Timer
         StartTime = startTime;
         EndTime = endTime;
         Weekdays = weekDays.ToArray();
-        EnabledRooms = enabledRooms.ToArray();
+        EnabledRoomIds = enabledRooms.Select(id => id.ToString()).ToArray();
     }
     public string ID;
 
@@ -27,6 +28,6 @@ public struct Timer
 
     public WeekDay[] Weekdays;
 
-    public Room[] EnabledRooms;
+    public string[] EnabledRoomIds;
 
 }
