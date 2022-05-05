@@ -25,20 +25,6 @@ public class EditBehaviour : MonoBehaviour
         checkmark.gameObject.SetActive(false);
     }
 
-    private void Awake()
-    {
-        /*foreach (GameObject ro in GameObject.FindGameObjectsWithTag("Room"))
-        {
-            rooms.Add(ro);
-        }
-
-        foreach (GameObject dl in GameObject.FindGameObjectsWithTag("DeleteLocation"))
-        {
-            deleteLocation.Add(dl);
-        }*/
-
-    }
-
     private void KillMinusButton()
     {
         GameObject[] derSkalSlettes = GameObject.FindGameObjectsWithTag("Pis");
