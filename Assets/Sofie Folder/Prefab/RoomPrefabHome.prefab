@@ -1462,6 +1462,7 @@ GameObject:
   - component: {fileID: 4263260388736074375}
   - component: {fileID: 4263260388736074377}
   - component: {fileID: 4530883952762655229}
+  - component: {fileID: 4996760936661842366}
   m_Layer: 5
   m_Name: RoomPrefabHome
   m_TagString: Room
@@ -1574,6 +1575,32 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
+--- !u!61 &4996760936661842366
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4263260388736074376}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 28.9}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1650, y: 400}
+  m_EdgeRadius: 0
 --- !u!1 &4263260388846812481
 GameObject:
   m_ObjectHideFlags: 0
