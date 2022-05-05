@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class DeleteRoom : MonoBehaviour
 {
-    [SerializeField] private EditRoomButton editRoomButton;
     [SerializeField] private List<Button> button = new List<Button>();
     [SerializeField] private GameObject deleteMessage;
     [SerializeField] private Button deleteButton;
@@ -13,24 +12,10 @@ public class DeleteRoom : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        editRoomButton = GameObject.FindObjectOfType<EditRoomButton>();
         //button.AddRange(GameObject.FindGameObjectsWithTag("DeleteButton"));
         deleteMessage.SetActive(false);
         cancelButton.onClick.AddListener(CloseDeleteMessage);
         DeleteRoomsInScene();
-    }
-
-    private void Update()
-    {
-        
-    }
-    private void CheckIfOn()
-    {
-        if (editRoomButton.isOn)
-        {
-            cancelButton.onClick.AddListener(CloseDeleteMessage);
-            DeleteRoomsInScene();
-        }
     }
 
     private void DeleteRoomsInScene()
