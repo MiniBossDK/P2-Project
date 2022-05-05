@@ -41,4 +41,5 @@ public class DeleteRoom : MonoBehaviour
         Destroy(obj);
         CloseDeleteMessage();
     }
+
 }

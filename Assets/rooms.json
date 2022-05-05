@@ -13,6 +13,55 @@
             "LightTemperatureLevel": 0.0,
             "LightLevel": 0.0,
             "Index": 1
+        },
+        {
+            "ID": "d0ddeefc-77a1-4b25-9791-d8b6853c5e09",
+            "Name": "Living Room",
+            "LightTemperatureLevel": 0.0,
+            "LightLevel": 0.0,
+            "Index": 0
+        },
+        {
+            "ID": "1950e4bd-3fe4-426c-b2b9-32484d110e97",
+            "Name": "Living Room",
+            "LightTemperatureLevel": 0.0,
+            "LightLevel": 0.0,
+            "Index": 0
+        },
+        {
+            "ID": "71639e81-4a94-4b01-a51f-3ebb2bfc0cc6",
+            "Name": "Living Room",
+            "LightTemperatureLevel": 0.0,
+            "LightLevel": 0.0,
+            "Index": 0
+        },
+        {
+            "ID": "09bf7a40-9e28-471d-92d5-7c063ce35ed4",
+            "Name": "Living Room",
+            "LightTemperatureLevel": 0.0,
+            "LightLevel": 0.0,
+            "Index": 0
+        },
+        {
+            "ID": "66ce4181-0f28-4098-94f8-f36d57257917",
+            "Name": "Living Room",
+            "LightTemperatureLevel": 0.0,
+            "LightLevel": 0.0,
+            "Index": 0
+        },
+        {
+            "ID": "acb482f3-b7ef-4b22-b84e-312aaa7b2bcc",
+            "Name": "Living Room",
+            "LightTemperatureLevel": 0.0,
+            "LightLevel": 0.0,
+            "Index": 0
+        },
+        {
+            "ID": "9a6105ef-3ff1-4d01-9e34-defea1365524",
+            "Name": "Living Room",
+            "LightTemperatureLevel": 0.0,
+            "LightLevel": 0.0,
+            "Index": 0
         }
     ]
 }

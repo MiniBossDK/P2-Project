@@ -28,7 +28,7 @@ public class RoomArranger : MonoBehaviour
         AdjustRoomContainerHeight();
     }
 
-    /*
+    
     // TODO - Change this to be event based from the add room feauture
     void Update()
     {
@@ -38,7 +38,7 @@ public class RoomArranger : MonoBehaviour
             AdjustRoomContainerHeight();
         }
     }
-    */
+    
 
     public void ChangeChildOrder()
     {
