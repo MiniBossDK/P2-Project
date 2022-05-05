@@ -28,10 +28,10 @@ public class DataTester : MonoBehaviour
     {
         //
         _roomManager.AddRoom(new Room(inputField.text, 0, 0, 0));
-        _timerManager.AddTimer(new Timer(0, 24));
-        _timerManager.AddTimer(new Timer(1, 24));
+        //_timerManager.AddTimer(new Timer(0, 24));
+        //_timerManager.AddTimer(new Timer(1, 24));
     }
-    
+
     public void Delete()
     {
         Debug.Log("Delete");
