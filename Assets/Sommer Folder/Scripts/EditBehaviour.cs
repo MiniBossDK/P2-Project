@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class EditBehaviour : MonoBehaviour
 {
@@ -14,15 +15,14 @@ public class EditBehaviour : MonoBehaviour
     [SerializeField] private Button button;
     [SerializeField] Button minusButton;
     [SerializeField] private Button checkmark;
-
-
-
-
+    [SerializeField] private TextMeshProUGUI title;
+    private string originalTitle;
 
     void Start()
     {
         button.onClick.AddListener(EditRooms);
-        checkmark.onClick.AddListener(KillMinusButton);
+        originalTitle = title.text;
+        checkmark.gameObject.SetActive(false);
     }
 
     private void Awake()
@@ -48,11 +48,16 @@ public class EditBehaviour : MonoBehaviour
             rooms.Clear();
             deleteLocation.Clear();
         }
+        checkmark.gameObject.SetActive(false);
+        title.text = originalTitle;
     }
 
     private void EditRooms()
     {
-        foreach(string tag in tags)
+        title.text = "Edit" + originalTitle;
+        checkmark.gameObject.SetActive(true);
+        checkmark.onClick.AddListener(KillMinusButton);
+        foreach (string tag in tags)
         {
             foreach (GameObject ro in GameObject.FindGameObjectsWithTag(tag))
             {
