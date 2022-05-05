@@ -36,6 +36,7 @@ public class EditBehaviour : MonoBehaviour
             deleteLocation.Clear();
         }
         checkmark.gameObject.SetActive(false);
+        popUpWindow.SetActive(false);
         title.text = originalTitle;
     }
 
@@ -49,8 +50,10 @@ public class EditBehaviour : MonoBehaviour
         {
             foreach (GameObject ro in GameObject.FindGameObjectsWithTag(tag))
             {
-                rooms.Add(ro);
-                Debug.Log(rooms.Count);
+                if (!rooms.Contains(ro))
+                {
+                    rooms.Add(ro);
+                }
             }
         }
 

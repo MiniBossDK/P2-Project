@@ -1764,7 +1764,7 @@ GameObject:
   - component: {fileID: 1214697966}
   m_Layer: 0
   m_Name: Manager
-  m_TagString: Untagged
+  m_TagString: Manager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1787,6 +1787,7 @@ MonoBehaviour:
   minusButton: {fileID: 9177486847015514970, guid: be23e78d66b381d429f2e4287323cdcc, type: 3}
   checkmark: {fileID: 632779291}
   title: {fileID: 2034235165}
+  popUpWindow: {fileID: 0}
 --- !u!4 &1214697967
 Transform:
   m_ObjectHideFlags: 0

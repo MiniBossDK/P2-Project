@@ -13,7 +13,6 @@ public class PopupMessage : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        inputManager = InputManager.Instance;
     }
 
     // Update is called once per frame

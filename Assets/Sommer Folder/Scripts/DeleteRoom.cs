@@ -10,6 +10,7 @@ public class DeleteRoom : MonoBehaviour
     [SerializeField] private Button deleteButton;
     [SerializeField] private Button cancelButton;
     [SerializeField] private EditBehaviour editBehaviour;
+    [SerializeField] private RoomManager roomManager;
   //  [SerializeField]private EditBehaviour editBehaviour;
     // Start is called before the first frame update
     void Start()
@@ -37,7 +38,7 @@ public class DeleteRoom : MonoBehaviour
     }
     public void KillRoom()
     {
-        Destroy(this.gameObject);
+        Destroy(button.transform.parent.parent.parent.parent.gameObject);
         CloseDeleteMessage();
     }
 
