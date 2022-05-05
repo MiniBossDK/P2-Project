@@ -65,6 +65,7 @@ public class EditBehaviour : MonoBehaviour
             foreach (GameObject ro in GameObject.FindGameObjectsWithTag(tag))
             {
                 rooms.Add(ro);
+                Debug.Log(rooms.Count);
             }
         }
 
