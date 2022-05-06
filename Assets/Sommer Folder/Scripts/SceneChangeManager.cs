@@ -19,4 +19,9 @@ public static class SceneChangeManager
         SceneManager.LoadScene(currentScene +1);
     }
 
+    public static void LoadHomePage()
+    {
+        SceneManager.LoadScene(0);
+    }
+
 }

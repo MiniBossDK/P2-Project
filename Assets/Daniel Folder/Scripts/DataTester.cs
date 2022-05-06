@@ -27,7 +27,7 @@ public class DataTester : MonoBehaviour
     public void Confirm()
     {
         //
-        _roomManager.AddRoom(new Room(inputField.text, 0, 0, 0));
+        _roomManager.AddRoom(new Room(inputField.text, "", 0, 0, 0));
         //_timerManager.AddTimer(new Timer(0, 24));
         //_timerManager.AddTimer(new Timer(1, 24));
     }

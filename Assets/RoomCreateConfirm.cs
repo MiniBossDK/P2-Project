@@ -1,18 +1,31 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class RoomCreateConfirm : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private Button button;
+    private RoomManager roomManager;
+
+    private void Awake()
     {
-        
+        roomManager = new RoomManager();
+    }
+    private void Start()
+    {
+        button = GetComponent<Button>();
+        button.onClick.AddListener(FinishRoomCreation);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void FinishRoomCreation()
     {
-        
+        string roomName = PlayerPrefs.GetString("RoomName");
+        string roomIconPath = PlayerPrefs.GetString("RoomIcon");
+
+        roomManager.AddRoom(new Room(roomName, roomIconPath, 0, 0, 0));
+
+        SceneChangeManager.LoadHomePage();
     }
 }

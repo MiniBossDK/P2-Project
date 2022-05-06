@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 2008265}
   - component: {fileID: 2008264}
   - component: {fileID: 2008263}
+  - component: {fileID: 2008267}
   m_Layer: 5
   m_Name: NextButton
   m_TagString: Untagged
@@ -244,6 +245,19 @@ RectTransform:
   m_AnchoredPosition: {x: 1064.8, y: -1575.2}
   m_SizeDelta: {x: 570, y: 427.1}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2008267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2008262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69bd15dfcc638e743afdaaf5b695bd33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_InputField: {fileID: 646340465}
 --- !u!1 &43176712
 GameObject:
   m_ObjectHideFlags: 0
@@ -2132,7 +2146,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -62}
+  m_AnchoredPosition: {x: 0, y: -61.999985}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1019049252
@@ -2701,8 +2715,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -2719,10 +2733,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 14
+  m_fontSize: 72
   m_fontSizeBase: 14
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -3900,7 +3914,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1814893469}
-  - component: {fileID: 1814893468}
   m_Layer: 0
   m_Name: manager
   m_TagString: Untagged
@@ -3908,19 +3921,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1814893468
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1814893467}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21d281a2ef21467468d5edd7cf3838db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nextButton: {fileID: 2008263}
 --- !u!4 &1814893469
 Transform:
   m_ObjectHideFlags: 0
