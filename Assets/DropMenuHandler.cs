@@ -25,7 +25,7 @@ public class DropMenuHandler : MonoBehaviour
     // Start is called before the first frame update
     private void Awake()
     {
-        
+
     }
 
     void Start()
@@ -36,15 +36,20 @@ public class DropMenuHandler : MonoBehaviour
 
         _downArrowIcon = Resources.Load<Sprite>("DropdownArrowDown");
         _upArrowIcon = Resources.Load<Sprite>("DropdownArrowUp");
-        
+
         for (int i = 0; i < menusItems.transform.childCount; i++)
         {
             var btn = menusItems.transform.GetChild(i);
-            menusItems.transform.GetChild(i).GetComponent<Button>().onClick.AddListener( () => OnSelectedItem(btn));
+            menusItems.transform.GetChild(i).GetComponent<Button>().onClick.AddListener(() => OnSelectedItem(btn));
         }
     }
 
     private void OnDropdownClicked()
+    {
+        ToggleMenuItems();
+    }
+
+    private void ToggleMenuItems()
     {
         if (isShowingItems)
         {
@@ -59,6 +64,7 @@ public class DropMenuHandler : MonoBehaviour
             dropdownLogo.sprite = _downArrowIcon;
         }
     }
+
     private void OnSelectedItem(Transform o)
     {
         var textMesh = o.GetChild(0).GetComponent<TextMeshProUGUI>();
@@ -69,7 +75,8 @@ public class DropMenuHandler : MonoBehaviour
         textMesh.text = labelText;
 
         dropDownLabel.text = selectedText;
+        ToggleMenuItems();
     }
-    
-    
+
+
 }
