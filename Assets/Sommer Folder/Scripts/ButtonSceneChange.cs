@@ -10,10 +10,10 @@ public class ButtonSceneChange : MonoBehaviour
 
     private void Start()
     {
-        nextButton.onClick.AddListener(LadOsAlleBede);
+        nextButton.onClick.AddListener(ContinueButton);
     }
 
-    private void LadOsAlleBede()
+    private void ContinueButton()
     {
         SceneChangeManager.LoadNextScene();
     }
