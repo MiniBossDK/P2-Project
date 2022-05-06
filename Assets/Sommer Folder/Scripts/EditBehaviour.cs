@@ -16,6 +16,7 @@ public class EditBehaviour : MonoBehaviour
     [SerializeField] private TextMeshProUGUI title;
     private string originalTitle;
     public GameObject popUpWindow;
+    public GameObject AddRoom;
 
     void Start()
     {
@@ -35,11 +36,13 @@ public class EditBehaviour : MonoBehaviour
         }
         popUpWindow.SetActive(false);
         checkmark.gameObject.SetActive(false);
+        AddRoom.SetActive(true);
         title.text = originalTitle;
     }
 
     private void EditRooms()
     {
+        AddRoom.SetActive(false);
         rooms.Clear();
         title.text = "Edit" + originalTitle;
         checkmark.gameObject.SetActive(true);

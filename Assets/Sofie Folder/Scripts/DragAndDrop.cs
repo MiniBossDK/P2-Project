@@ -72,15 +72,10 @@ public class DragAndDrop : MonoBehaviour
                 }
                 if (!passedElements.Contains(Hit.collider.gameObject.transform))
                 {
-                    if (elmToDrag.transform.position.y > Hit.collider.transform.position.y)
+                    if (elmToDrag.transform.position.y > Hit.collider.transform.position.y || elmToDrag.transform.position.y < Hit.collider.transform.position.y)
                     {
                         passedElements.Add(Hit.collider.gameObject.transform);
-                        elmToDrag.SetSiblingIndex(elmToDrag.GetSiblingIndex() + 1);
-                    }
-                    else if (elmToDrag.transform.position.y < Hit.collider.transform.position.y)
-                    {
-                        passedElements.Add(Hit.collider.gameObject.transform);
-                        elmToDrag.SetSiblingIndex(elmToDrag.GetSiblingIndex() - 1);
+                        passedElements[passedElements.Count - 1].SetSiblingIndex(elmToDrag.GetSiblingIndex());
                     }
                 }
             }
@@ -91,6 +86,9 @@ public class DragAndDrop : MonoBehaviour
     {
         if(elmToDrag != null)
         {
+ 
+           //elmToDrag.SetSiblingIndex(elmToDrag.GetSiblingIndex());
+
             SetRoomToSwitchElm(elmToDrag);
             passedElements.Clear();
             elmToDrag = null;
