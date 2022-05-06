@@ -4,6 +4,7 @@ using UnityEngine;
 
 public enum WeekDay
 {
+    None,
     Monday,
     Tuesday,
     Wednesday,
