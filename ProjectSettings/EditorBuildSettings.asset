@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Sofie Folder/Scenes/homePageTest.unity
+    guid: 9da129b3f9b0a6c429c5ca12233ac43c
   m_configObjects: {}
