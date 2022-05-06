@@ -1949,6 +1949,7 @@ MonoBehaviour:
   checkmark: {fileID: 693303294}
   title: {fileID: 599573129}
   popUpWindow: {fileID: 1630907706}
+  AddRoom: {fileID: 918549513}
 --- !u!4 &749734517
 Transform:
   m_ObjectHideFlags: 0
@@ -1976,6 +1977,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextButton: {fileID: 990361951}
+--- !u!1 &918549513 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7070946177654837677, guid: 7ec5386aee5c41f49b8b7a9b5cc6057b, type: 3}
+  m_PrefabInstance: {fileID: 121312984}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &944325079
 GameObject:
   m_ObjectHideFlags: 0
@@ -2179,7 +2185,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1889562072, guid: 7ec5386aee5c41f49b8b7a9b5cc6057b, type: 3}
   m_PrefabInstance: {fileID: 121312984}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 918549513}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
