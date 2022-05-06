@@ -8,11 +8,9 @@ using UnityEngine.SceneManagement;
 public class EditScenes : MonoBehaviour
 {
     [SerializeField] private Button butt;
-    SceneChangeManager changementDeCadre;
 
     public void Start()
     {
-        changementDeCadre = new SceneChangeManager();
         butt.onClick.AddListener(LoadEditScene);
     }
 

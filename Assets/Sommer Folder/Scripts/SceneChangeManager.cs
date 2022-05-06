@@ -3,17 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SceneChangeManager : MonoBehaviour
+public static class SceneChangeManager
 {
-    public int currentScene;
+    public static int currentScene;
 
-    private void Awake()
+    public static void LoadPreviousScene()
     {
         currentScene = SceneManager.GetActiveScene().buildIndex;
-    }
-
-    public void LoadPreviousScene()
-    {
         SceneManager.LoadScene(currentScene-1);
     }
+
+    public static void LoadNextScene()
+    {
+        currentScene = SceneManager.GetActiveScene().buildIndex;
+        SceneManager.LoadScene(currentScene +1);
+    }
+
 }
