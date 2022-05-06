@@ -15,10 +15,9 @@ public class DragAndDrop : MonoBehaviour
     private List<Transform> passedElements = new List<Transform>();
     private Vector3 initialPosition;
     int initialIndex;
-    public TextMeshProUGUI debugText;
-    public TextMeshProUGUI debugText2;
     private float speed = .1f;
     private Vector3 velocity = Vector3.zero;
+    GameObject prevHitCollider;
 
 
     void Start()
@@ -37,7 +36,6 @@ public class DragAndDrop : MonoBehaviour
 
     private void SetMoveableElement(Vector2 pos)
     {
-        debugText.text = "StartPos " + pos.ToString();
         Ray ray = Camera.main.ScreenPointToRay(pos);
         RaycastHit2D Hit = Physics2D.GetRayIntersection(ray);
         if (Hit.collider != null)
@@ -46,6 +44,7 @@ public class DragAndDrop : MonoBehaviour
             elmToDrag = Hit.collider.gameObject.GetComponent<RectTransform>();
             initialPosition = elmToDrag.transform.position;
             initialIndex = elmToDrag.transform.GetSiblingIndex();
+            prevHitCollider = elmToDrag.gameObject;
         }
     }
     private void MoveElement(Vector2 pos)
@@ -61,21 +60,27 @@ public class DragAndDrop : MonoBehaviour
             RaycastHit2D Hit = Physics2D.GetRayIntersection(ray);
             elmToDrag.transform.position = new Vector3(elmToDrag.transform.position.x, ray.GetPoint(initialDistance).y,
                 ray.GetPoint(initialDistance).z);
+            if(Hit.collider != prevHitCollider && Hit.collider!= null)
+            {
+                prevHitCollider = Hit.collider.gameObject;
+            }
             if (Hit.collider != null)
             {
+                if(passedElements.Count >= 1)
+                {
+                    passedElements.RemoveAt(passedElements.Count - 1);
+                }
                 if (!passedElements.Contains(Hit.collider.gameObject.transform))
                 {
-                    if(elmToDrag.transform.position.y > Hit.collider.transform.position.y)
+                    if (elmToDrag.transform.position.y > Hit.collider.transform.position.y)
                     {
                         passedElements.Add(Hit.collider.gameObject.transform);
                         elmToDrag.SetSiblingIndex(elmToDrag.GetSiblingIndex() + 1);
-                        Debug.Log(passedElements[2].GetSiblingIndex());
-
-                    } else if (elmToDrag.transform.position.y < Hit.collider.transform.position.y)
+                    }
+                    else if (elmToDrag.transform.position.y < Hit.collider.transform.position.y)
                     {
                         passedElements.Add(Hit.collider.gameObject.transform);
                         elmToDrag.SetSiblingIndex(elmToDrag.GetSiblingIndex() - 1);
-                        passedElements.RemoveAt(passedElements.Count);
                     }
                 }
             }
@@ -89,6 +94,7 @@ public class DragAndDrop : MonoBehaviour
             SetRoomToSwitchElm(elmToDrag);
             passedElements.Clear();
             elmToDrag = null;
+            scrollbar.vertical = true;
         }
     }
 
