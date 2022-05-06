@@ -4,5 +4,17 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Finished Scenes/Home Page.unity
+    guid: bbcfb0af139e07d46b00c7a6fe8bf26a
+  - enabled: 1
+    path: Assets/Finished Scenes/AddRoomNameScene.unity
+    guid: f74d3507a06ff614ea25f94768131c1d
+  - enabled: 1
+    path: Assets/Finished Scenes/AddRoomIconScene.unity
+    guid: b0491a1da66ea5f4ea17b6fcf17be984
+  - enabled: 1
+    path: Assets/Finished Scenes/AddRoomLightScene.unity
+    guid: 1c1a32ec627b81b4f9de32060b033535
   m_configObjects: {}
