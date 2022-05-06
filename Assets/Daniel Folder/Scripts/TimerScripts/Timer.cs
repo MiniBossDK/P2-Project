@@ -6,9 +6,19 @@ using System.Linq;
 [Serializable]
 public struct Timer
 {
-    public Timer(Guid id, string name, TimerType type, int startTime, int endTime, List<WeekDay> weekDays)
+    public Timer(Guid id, string name, TimerType type, long startTime, long endTime, List<WeekDay> weekDays)
     {
         ID = id.ToString();
+        Name = name;
+        Type = type;
+        StartTime = startTime;
+        EndTime = endTime;
+        Weekdays = weekDays.ToArray();
+    }
+
+    public Timer(string name, TimerType type, long startTime, long endTime, List<WeekDay> weekDays)
+    {
+        ID = Guid.NewGuid().ToString();
         Name = name;
         Type = type;
         StartTime = startTime;
@@ -21,9 +31,9 @@ public struct Timer
 
     public TimerType Type;
 
-    public int StartTime;
+    public long StartTime;
 
-    public int EndTime;
+    public long EndTime;
 
     public WeekDay[] Weekdays;
 }

@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 using DanielLochner.Assets.SimpleScrollSnap;
 
 public class AddTimerData : MonoBehaviour
 {
     [SerializeField]
-    private InputField _timerNameInput;
+    private TMP_InputField _timerNameInput;
     [SerializeField]
     private Dropdown dropdownMenu;
     [SerializeField]

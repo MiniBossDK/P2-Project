@@ -8,7 +8,7 @@ using TMPro;
 
 public class DropMenuHandler : MonoBehaviour
 {
-    public string SelectedItem
+    public TimerType SelectedItem
     {
         get;
         private set;
@@ -69,7 +69,7 @@ public class DropMenuHandler : MonoBehaviour
     {
         var textMesh = o.GetChild(0).GetComponent<TextMeshProUGUI>();
         var selectedText = textMesh.text;
-        SelectedItem = o.GetChild(0).GetComponent<TextMeshProUGUI>().text;
+        SelectedItem = GetTimerTypeFromText(o.GetChild(0).GetComponent<TextMeshProUGUI>().text);
         var labelText = dropDownLabel.text;
 
         textMesh.text = labelText;
@@ -78,5 +78,21 @@ public class DropMenuHandler : MonoBehaviour
         ToggleMenuItems();
     }
 
+    private TimerType GetTimerTypeFromText(string text)
+    {
+        switch (text)
+        {
+            case "Wake-up":
+                return TimerType.WakeUp;
+            case "Sleep":
+                return TimerType.Sleep;
+            case "Coming Home":
+                return TimerType.ComingHome;
+            case "Leaving Home":
+                return TimerType.LeavingHome;
+            default:
+                return TimerType.None;
+        }
+    }
 
 }
