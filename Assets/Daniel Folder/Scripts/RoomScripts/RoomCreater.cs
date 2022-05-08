@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,14 +10,16 @@ using TMPro;
 
 public class RoomCreater : MonoBehaviour
 {
+    public delegate void CreateRoomEvent();
+    public event CreateRoomEvent OnCreateRoom;
+    
     [SerializeField] private GameObject roomContainer;
     [SerializeField] private GameObject roomPrefab;
 
     private RoomManager _roomManager;
-    private Button _button;
+
     void Start()
     {
-        _button = GetComponent<Button>();
         _roomManager = new RoomManager();
 
         foreach (var room in _roomManager.GetAllRooms().OrderByDescending(room => room.Index))
@@ -29,6 +32,7 @@ public class RoomCreater : MonoBehaviour
 
             roomText.text = room.Name;
             roomUI.transform.SetAsFirstSibling();
+            OnCreateRoom?.Invoke();
         }
     }
 }

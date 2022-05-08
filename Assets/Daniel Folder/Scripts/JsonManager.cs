@@ -19,8 +19,7 @@ public class JsonManager<T>
     private List<T> _data;
 
     private readonly string _fileName;
-
-    private string Path => Application.dataPath + "/" + _fileName + ".json";
+    private string Path => Application.persistentDataPath + "/" + _fileName + ".json";
 
     protected JsonManager(string fileName)
     {
@@ -45,7 +44,7 @@ public class JsonManager<T>
     
     protected void DeleteAllData(Predicate<T> filter)
     {
-        Debug.Log(_data.RemoveAll(filter));
+        _data.RemoveAll(filter);
         SaveData(_data);
     }
 
@@ -84,7 +83,19 @@ public class JsonManager<T>
 
     private List<T> LoadData()
     {
-        if (File.Exists(Path)) return JsonUtility.FromJson<Data>(File.ReadAllText(Path)).DataList ?? new List<T>();
+        if (File.Exists(Path))
+        {
+            var jsonData = new List<T>();
+            try
+            {
+                jsonData = JsonUtility.FromJson<Data>(File.ReadAllText(Path)).DataList;
+            }
+            catch (NullReferenceException e)
+            {
+                return jsonData;
+            }
+            return jsonData;
+        }
         Stream cr = File.Create(Path);
         cr.Close();
         return new List<T>();

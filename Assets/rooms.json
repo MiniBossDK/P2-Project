@@ -1,17 +1,9 @@
 {
     "DataList": [
         {
-            "ID": "278e689e-ab0c-4591-8f3b-6201b831adc7",
-            "Name": "Hello",
-            "RoomIconPath": "Table",
-            "LightTemperatureLevel": 0.0,
-            "LightLevel": 0.0,
-            "Index": 0
-        },
-        {
-            "ID": "b27ce0cd-b985-4bfd-aef7-c47c87bfaa16",
-            "Name": "thriller",
-            "RoomIconPath": "ToiletPaper",
+            "ID": "fc0d7b87-fa7d-432c-801a-78760295b90c",
+            "Name": "asdasd",
+            "RoomIconPath": "DinningRoom",
             "LightTemperatureLevel": 0.0,
             "LightLevel": 0.0,
             "Index": 0

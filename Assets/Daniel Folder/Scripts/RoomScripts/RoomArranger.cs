@@ -1,9 +1,14 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+[DefaultExecutionOrder(-1)] // This have to be placed since the roomContainer would not be able to created fast enough and therefore be null
 public class RoomArranger : MonoBehaviour
 {
+    [SerializeField] private RoomCreater _roomCreater;
+    [SerializeField] private EditBehaviour _editBehaviour;
+    [SerializeField] private DeleteRoom _deleteRoom;
+    
     private RectTransform roomContainer;
     [SerializeField]
     private float spacing;
@@ -18,25 +23,36 @@ public class RoomArranger : MonoBehaviour
         }
     }
 
-    // Start is called before the first frame update
+    private void OnEnable()
+    {
+        _roomCreater.OnCreateRoom += OnRoomsModified;
+        _editBehaviour.OnDeleteRoomEvent += OnRoomsModified;
+        _deleteRoom.OnDeleteRoom += OnRoomsModified;
+    }
+
+    private void OnDisable()
+    {
+        _roomCreater.OnCreateRoom -= OnRoomsModified;
+        _editBehaviour.OnDeleteRoomEvent -= OnRoomsModified;
+        _deleteRoom.OnDeleteRoom -= OnRoomsModified;
+    }
+
+    // Start is called before the first frame update 
 
     void Start()
     {
         roomContainer = GetComponent<RectTransform>();
+        /*
         // Fill up the list with already existing UI elements
         RefreshChildElement();
         AdjustRoomContainerHeight();
+        */
     }
-
     
-    // TODO - Change this to be event based from the add room feauture
-    void Update()
+    void OnRoomsModified()
     {
-        if (HasChildrenChanged)
-        {
-            RefreshChildElement();
-            AdjustRoomContainerHeight();
-        }
+        RefreshChildElement();
+        AdjustRoomContainerHeight();
     }
     
 
@@ -62,6 +78,7 @@ public class RoomArranger : MonoBehaviour
 
     private void AdjustRoomContainerHeight()
     {
+        Debug.Log("Rooms adjusted");
         float newHeight = 0;
 
         foreach (RectTransform room in elements)

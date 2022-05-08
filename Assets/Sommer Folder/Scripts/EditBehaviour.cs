@@ -5,6 +5,10 @@ using TMPro;
 
 public class EditBehaviour : MonoBehaviour
 {
+    public delegate void DeleteRoomEvent();
+
+    public event DeleteRoomEvent OnDeleteRoomEvent;
+    
     public List<GameObject> rooms = new List<GameObject>();
     public List<GameObject> deleteLocation = new List<GameObject>();
 
@@ -31,6 +35,7 @@ public class EditBehaviour : MonoBehaviour
         foreach(GameObject drLicens in derSkalSlettes)
         {
             Destroy(drLicens);
+            OnDeleteRoomEvent?.Invoke();
             rooms.Clear();
             deleteLocation.Clear();
         }
@@ -65,9 +70,9 @@ public class EditBehaviour : MonoBehaviour
         foreach (GameObject ro in rooms)
         {
             foreach (GameObject dl in deleteLocation)
-                {
+            {
                 Instantiate(minusButton, dl.transform);
-                }
+            }
         }
     }
 }

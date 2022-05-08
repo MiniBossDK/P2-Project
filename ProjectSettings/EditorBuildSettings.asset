@@ -17,4 +17,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Finished Scenes/AddRoomLightScene.unity
     guid: 1c1a32ec627b81b4f9de32060b033535
+  - enabled: 1
+    path: Assets/Finished Scenes/TimersPage.unity
+    guid: a3905a5bec0c8214e8d327f93ee8fe24
+  - enabled: 1
+    path: Assets/Finished Scenes/SettingsPage.unity
+    guid: 8f67b6d88e20b164e80a7e2b67f2ff11
   m_configObjects: {}

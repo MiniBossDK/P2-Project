@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 public class DeleteRoom : MonoBehaviour
 {
+    public delegate void DeleteRoomEvent();
+    public event DeleteRoomEvent OnDeleteRoom;
+    
     [SerializeField] private Button button;
     [SerializeField] private GameObject deleteMessage;
     [SerializeField] private Button deleteButton;
@@ -22,7 +25,7 @@ public class DeleteRoom : MonoBehaviour
     {
         editBehaviour = GameObject.FindGameObjectWithTag("Manager").GetComponent<EditBehaviour>();
         deleteMessage = editBehaviour.popUpWindow;
-        button.onClick.AddListener(OpenDeleteMessage); ;
+        button.onClick.AddListener(OpenDeleteMessage);
     }
 
 
@@ -40,12 +43,14 @@ public class DeleteRoom : MonoBehaviour
     private void CloseDeleteMessage()
     {
         deleteMessage.SetActive(false);
+        OnDeleteRoom?.Invoke();
         
     }
     public void KillRoom()
     {
         string id = button.transform.parent.parent.parent.parent.gameObject.name;
         Destroy(button.transform.parent.parent.parent.parent.gameObject);
+        OnDeleteRoom?.Invoke();
         roomManager.DeleteRoom(room => room.ID == id);
         CloseDeleteMessage();
     }

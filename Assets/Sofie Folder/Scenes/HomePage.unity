@@ -1709,16 +1709,56 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1054236100}
   m_CullTransparentMesh: 1
---- !u!1 &1086832356 stripped
+--- !u!1 &1086832356
 GameObject:
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 1706887964822865292, guid: 2763142a7d688824fa4b695b699a4f6b, type: 3}
   m_PrefabInstance: {fileID: 1706887963745434472}
   m_PrefabAsset: {fileID: 0}
---- !u!224 &1086832357 stripped
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1086832358}
+  m_Layer: 0
+  m_Name: Placeholder for referenced GameObject in Prefab instance (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1086832357
 RectTransform:
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 1706887964822865293, guid: 2763142a7d688824fa4b695b699a4f6b, type: 3}
   m_PrefabInstance: {fileID: 1706887963745434472}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1405623806}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1086832358}
+  m_Father: {fileID: 870589632}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!4 &1086832358
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 9223372036854775807, guid: 2763142a7d688824fa4b695b699a4f6b, type: 3}
+  m_PrefabInstance: {fileID: 1706887963745434472}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1086832356}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1086832357}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1152790376
 GameObject:
   m_ObjectHideFlags: 0
@@ -1906,6 +1946,7 @@ MonoBehaviour:
   checkmark: {fileID: 183286251591528687}
   title: {fileID: 2034235165}
   popUpWindow: {fileID: 1086832356}
+  AddRoom: {fileID: 7070946178521458138}
 --- !u!4 &1214697967
 Transform:
   m_ObjectHideFlags: 0
@@ -2374,6 +2415,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1405623806
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 1706887964822865292, guid: 2763142a7d688824fa4b695b699a4f6b, type: 3}
+  m_PrefabInstance: {fileID: 1706887963745434472}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1086832357}
+  m_Layer: 0
+  m_Name: 'DeleteRoomMessage (Missing Prefab with guid: 2763142a7d688824fa4b695b699a4f6b)'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1475810400
 GameObject:
   m_ObjectHideFlags: 0
