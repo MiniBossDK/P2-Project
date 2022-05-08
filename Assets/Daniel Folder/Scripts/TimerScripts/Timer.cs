@@ -6,23 +6,23 @@ using System.Linq;
 [Serializable]
 public struct Timer
 {
-    public Timer(Guid id, string name, TimerType type, long startTime, long endTime, List<WeekDay> weekDays)
+    public Timer(Guid id, string name, TimerType type, int timeHours, int timeMin, List<WeekDay> weekDays)
     {
         ID = id.ToString();
         Name = name;
         Type = type;
-        StartTime = startTime;
-        EndTime = endTime;
+        TimeHours = timeHours;
+        TimeMin = timeMin;
         Weekdays = weekDays.ToArray();
     }
 
-    public Timer(string name, TimerType type, long startTime, long endTime, List<WeekDay> weekDays)
+    public Timer(string name, TimerType type, int timeHours, int timeMin, List<WeekDay> weekDays)
     {
         ID = Guid.NewGuid().ToString();
         Name = name;
         Type = type;
-        StartTime = startTime;
-        EndTime = endTime;
+        TimeHours = timeHours;
+        TimeMin = timeMin;
         Weekdays = weekDays.ToArray();
     }
     public string ID;
@@ -31,9 +31,9 @@ public struct Timer
 
     public TimerType Type;
 
-    public long StartTime;
+    public int TimeHours;
 
-    public long EndTime;
+    public long TimeMin;
 
     public WeekDay[] Weekdays;
 }

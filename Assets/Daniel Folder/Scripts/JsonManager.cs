@@ -19,7 +19,7 @@ public class JsonManager<T>
     private List<T> _data;
 
     private readonly string _fileName;
-    private string Path => Application.persistentDataPath + "/" + _fileName + ".json";
+    private string Path => Application.dataPath + "/" + _fileName + ".json";
 
     protected JsonManager(string fileName)
     {

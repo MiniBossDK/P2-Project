@@ -1,16 +1,40 @@
 {
     "DataList": [
         {
-            "ID": "48d8dcd2-f524-424f-9374-af5e453eca92",
+            "ID": "c195d1ae-224b-4458-9513-e821449923c9",
             "Name": "Hello",
             "Type": 3,
-            "StartTime": 1651833646873,
-            "EndTime": 1651898866875,
+            "TimeHours": 16,
+            "TimeMin": 11,
             "Weekdays": [
                 3,
                 4,
-                5,
-                6
+                5
+            ]
+        },
+        {
+            "ID": "239ee4e8-910a-4bfb-90fc-daeea21e8835",
+            "Name": "Hello",
+            "Type": 3,
+            "TimeHours": 17,
+            "TimeMin": 4,
+            "Weekdays": [
+                1,
+                2,
+                3,
+                4
+            ]
+        },
+        {
+            "ID": "06a2f3c2-6e43-45dd-814d-8ddcd21d204a",
+            "Name": "Hello",
+            "Type": 2,
+            "TimeHours": 14,
+            "TimeMin": 11,
+            "Weekdays": [
+                3,
+                4,
+                5
             ]
         }
     ]

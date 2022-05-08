@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Finished Scenes/Home Page.unity
+    path: Assets/Finished Scenes/HomePage.unity
     guid: bbcfb0af139e07d46b00c7a6fe8bf26a
   - enabled: 1
     path: Assets/Finished Scenes/AddRoomNameScene.unity
@@ -23,4 +23,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Finished Scenes/SettingsPage.unity
     guid: 8f67b6d88e20b164e80a7e2b67f2ff11
+  - enabled: 1
+    path: Assets/Finished Scenes/AddTimerNew.unity
+    guid: f0ff919c040fff04bb826c9eeeef28c7
+  - enabled: 1
+    path: Assets/Finished Scenes/Scenes.unity
+    guid: 314604547d549c84ca8bbe8bd4a57521
+  - enabled: 1
+    path: Assets/Finished Scenes/CreateSceneName.unity
+    guid: a8149059381150c47b05c88ebd74013b
+  - enabled: 1
+    path: Assets/Finished Scenes/CreateSceneRooms.unity
+    guid: 05b1d5bf64d080342b764a77b6defaea
   m_configObjects: {}

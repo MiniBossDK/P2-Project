@@ -24,7 +24,7 @@ public class RoomCreater : MonoBehaviour
 
         foreach (var room in _roomManager.GetAllRooms().OrderByDescending(room => room.Index))
         {
-            Sprite icon = Resources.Load<Sprite>("RoomIcons/" + room.RoomIconPath);
+            Sprite icon = Resources.Load<Sprite>("RoomIconsNoBackground/" + room.RoomIconPath);
             var roomUI = Instantiate(roomPrefab, roomContainer.transform);
             roomUI.name = room.ID;
             var roomText = roomUI.GetComponentInChildren<TextMeshProUGUI>();

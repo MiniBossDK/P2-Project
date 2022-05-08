@@ -29,6 +29,7 @@ public class TimerDropdownHandler : MonoBehaviour
         {
             var index = i;
             var btn = transform.GetChild(i);
+            if(btn.CompareTag("Plus")) continue;
             timerTypes[i] = transform.GetChild(i);
             btn.GetComponent<Button>().onClick.AddListener(() => OnTimerClicked(index, btn));
         }
@@ -66,9 +67,14 @@ public class TimerDropdownHandler : MonoBehaviour
             var timeName = time.transform.GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>();
             var timeText = time.transform.GetChild(0).GetChild(1).GetComponent<TextMeshProUGUI>();
 
+            const int timerBeautifierNumber = 10;
+            
             timeName.text = timer.Name;
-            timeText.text =
-                $"{DateTimeOffset.FromUnixTimeMilliseconds(timer.StartTime).Hour}:{DateTimeOffset.FromUnixTimeMilliseconds(timer.StartTime).Minute}";
+
+            string timerHour = (timer.TimeHours < timerBeautifierNumber) ? $"0:{timer.TimeHours}" : timer.TimeHours.ToString();
+            string timerMin = (timer.TimeMin < timerBeautifierNumber) ? $"0{timer.TimeMin}" : timer.TimeMin.ToString();
+            
+            timeText.text = $"{timerHour}:{timerMin}";
         }
     }
 

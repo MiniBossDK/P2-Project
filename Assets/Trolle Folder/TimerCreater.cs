@@ -4,12 +4,15 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using DanielLochner.Assets.SimpleScrollSnap;
+using UnityEngine.SceneManagement;
 
 public class TimerCreater : MonoBehaviour
 {
     private Button confirmBtn;
     private TimerManager timerManager;
-
+    [SerializeField] private int timerSceneIndex;
+    
+    
     [SerializeField]
     private TMP_InputField timerName;
     [SerializeField]
@@ -41,17 +44,16 @@ public class TimerCreater : MonoBehaviour
         string name = timerName.text;
         TimerType type = timerType.SelectedItem;
 
-        long startDateTime = DateTimeOffset.Now.ToUnixTimeMilliseconds();
+        int timeMin = Int32.Parse(GetScrollTextFromIndex(minScroll.SelectedPanel, minContainer.transform).text);
+        int timeHours = Int32.Parse(GetScrollTextFromIndex(hourScroll.SelectedPanel, hourContainer.transform).text);
 
-        Debug.Log(minScroll.SelectedPanel);
-
-        int endTimeMin = Int32.Parse(GetScrollTextFromIndex(minScroll.SelectedPanel, minContainer.transform).text);
-        int endTimeHour = Int32.Parse(GetScrollTextFromIndex(hourScroll.SelectedPanel, hourContainer.transform).text);
-        long endDateTime = DateTimeOffset.Now.AddMinutes(endTimeMin).AddHours(endTimeHour).ToUnixTimeMilliseconds();
-
+        Debug.Log(timeMin);
+        Debug.Log(timeHours);
+        
         List<WeekDay> weekdays = selectedWeekDays.EnabledWeekDays;
 
-        SaveTimerData(name, type, startDateTime, endDateTime, weekdays);
+        SaveTimerData(name, type, timeHours, timeMin, weekdays);
+        SceneManager.LoadScene(timerSceneIndex);
     }
 
     private TextMeshProUGUI GetScrollTextFromIndex(int index, Transform scrollObject)
@@ -59,9 +61,9 @@ public class TimerCreater : MonoBehaviour
         return scrollObject.GetChild(index).GetChild(0).GetComponent<TextMeshProUGUI>();
     }
 
-    private void SaveTimerData(string name, TimerType type, long startTime, long endTime, List<WeekDay> weekdays)
+    private void SaveTimerData(string timerDataName, TimerType type, int timeHours, int timeMin, List<WeekDay> weekdays)
     {
-        timerManager.AddTimer(new Timer(name, type, startTime, endTime, weekdays));
+        timerManager.AddTimer(new Timer(timerDataName, type, timeHours, timeMin, weekdays));
     }
 
 

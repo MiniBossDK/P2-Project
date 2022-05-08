@@ -12,15 +12,15 @@ public class WeekdayHandler : MonoBehaviour
         private set;
     }
 
-    private Sprite offCircle;
-    private Sprite onCircle;
+    private Sprite _offCircle;
+    private Sprite _onCircle;
 
     void Start()
     {
         EnabledWeekDays = new List<WeekDay>();
 
-        offCircle = Resources.Load<Sprite>("OffCircle");
-        onCircle = Resources.Load<Sprite>("OnCircle");
+        _offCircle = Resources.Load<Sprite>("OffCircle");
+        _onCircle = Resources.Load<Sprite>("OnCircle");
 
 
         for (int i = 0; i < transform.childCount; i++)
@@ -38,39 +38,31 @@ public class WeekdayHandler : MonoBehaviour
 
     private WeekDay GetWeekdayFromIndex(int index)
     {
-        switch (index)
+        return index switch
         {
-            case 0:
-                return WeekDay.Monday;
-            case 1:
-                return WeekDay.Tuesday;
-            case 2:
-                return WeekDay.Wednesday;
-            case 3:
-                return WeekDay.Thursday;
-            case 4:
-                return WeekDay.Friday;
-            case 5:
-                return WeekDay.Saturday;
-            case 6:
-                return WeekDay.Sunday;
-            default:
-                return WeekDay.None;
-        }
+            0 => WeekDay.Monday,
+            1 => WeekDay.Tuesday,
+            2 => WeekDay.Wednesday,
+            3 => WeekDay.Thursday,
+            4 => WeekDay.Friday,
+            5 => WeekDay.Saturday,
+            6 => WeekDay.Sunday,
+            _ => WeekDay.None
+        };
     }
 
     private void Toggle(Transform clickedTransform, WeekDay weekday)
     {
         Sprite clickedSprite = clickedTransform.GetComponent<Image>().sprite;
-        if (clickedSprite == offCircle)
+        if (clickedSprite == _offCircle)
         {
-            clickedTransform.GetComponent<Image>().sprite = onCircle;
+            clickedTransform.GetComponent<Image>().sprite = _onCircle;
             clickedTransform.GetChild(0).GetComponent<TextMeshProUGUI>().color = Color.black;
             EnabledWeekDays.Add(weekday);
         }
         else
         {
-            clickedTransform.GetComponent<Image>().sprite = offCircle;
+            clickedTransform.GetComponent<Image>().sprite = _offCircle;
             clickedTransform.GetChild(0).GetComponent<TextMeshProUGUI>().color = Color.white;
             EnabledWeekDays.Remove(weekday);
         }

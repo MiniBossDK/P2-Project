@@ -12,6 +12,9 @@ TagManager:
   - CancelButton
   - LightSources
   - Manager
+  - Timer
+  - Body
+  - Plus
   layers:
   - Default
   - TransparentFX
