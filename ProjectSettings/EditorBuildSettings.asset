@@ -35,4 +35,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Finished Scenes/CreateSceneRooms.unity
     guid: 05b1d5bf64d080342b764a77b6defaea
+  - enabled: 1
+    path: Assets/Finished Scenes/HelpPage.unity
+    guid: f436aa2d278615547be2f7e7ec21f1a7
   m_configObjects: {}

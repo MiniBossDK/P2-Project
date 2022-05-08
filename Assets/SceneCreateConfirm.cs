@@ -29,10 +29,13 @@ public class SceneCreateConfirm : MonoBehaviour
         {
             string roomId = roomContainer.transform.GetChild(i).name;
             var roomUnfold = roomContainer.transform.GetChild(i).GetChild(0).GetComponent<SceneRoomUnfold>();
-            if(!roomUnfold.lightSourceCheckIsOn) continue;
+            //Debug.Log("Yes");
+            //if(!roomUnfold.lightSourceCheckIsOn) continue;
             var lightValue = roomUnfold.lightSliderValue;
             var temperatureValue = roomUnfold.lightSliderValue;
-            _scenesManager.AddScene(new Scene(Guid.Parse(roomId), PlayerPrefs.GetString("SceneName"), new LightSource(Guid.NewGuid(), lightValue, temperatureValue)));
+            
+            //_scenesManager.AddScene(new Scene(Guid.Parse(roomId), PlayerPrefs.GetString("SceneName"), new LightSource(Guid.NewGuid(), lightValue, temperatureValue)));
+            _scenesManager.AddScene(new Scene(Guid.Parse(roomId), PlayerPrefs.GetString("SceneName"), new LightSource(lightValue, temperatureValue)));
             
         }
         SceneManager.LoadScene(7);

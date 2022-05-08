@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class SceneCreator : MonoBehaviour
@@ -20,7 +21,10 @@ public class SceneCreator : MonoBehaviour
     {
         foreach (var scene in _scenesManager.GetAllScenes())
         {
-            //Instantiate(scenePrefab.gameObject, sceneContainer.gameObject);
+            var sceneObject = Instantiate(scenePrefab, sceneContainer.transform);
+            sceneObject.transform.SetAsFirstSibling();
+            var sceneName = sceneObject.transform.GetChild(1).GetComponent<TextMeshProUGUI>();
+            sceneName.text = scene.SceneName;
         }
     }
 }

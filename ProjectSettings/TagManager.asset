@@ -15,6 +15,7 @@ TagManager:
   - Timer
   - Body
   - Plus
+  - Spacer
   layers:
   - Default
   - TransparentFX

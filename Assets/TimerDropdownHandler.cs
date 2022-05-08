@@ -10,7 +10,6 @@ public class TimerDropdownHandler : MonoBehaviour
     [SerializeField] private GameObject timePrefab;
     [SerializeField] private GameObject noTimersPrefab;
     private TimerManager _timerManager;
-    private Transform[] timerTypes = new Transform[4];
 
     private Sprite _downArrow;
     private Sprite _upArrow;
@@ -24,14 +23,14 @@ public class TimerDropdownHandler : MonoBehaviour
     {
         _downArrow = Resources.Load<Sprite>("DropdownArrowDown");
         _upArrow = Resources.Load<Sprite>("DropdownArrowUp");
-        
+        var index = 0;
         for (int i = 0; i < transform.childCount; i++)
         {
-            var index = i;
             var btn = transform.GetChild(i);
-            if(btn.CompareTag("Plus")) continue;
-            timerTypes[i] = transform.GetChild(i);
-            btn.GetComponent<Button>().onClick.AddListener(() => OnTimerClicked(index, btn));
+            if(btn.CompareTag("Plus") || btn.CompareTag("Spacer")) continue;
+            index++;
+            var index1 = index;
+            btn.GetComponent<Button>().onClick.AddListener(() => OnTimerClicked(index1, btn));
         }
     }
 
@@ -52,7 +51,8 @@ public class TimerDropdownHandler : MonoBehaviour
 
     private void OpenMenu(int index, Transform btn)
     {
-        var type = (TimerType) index + 1;
+        var type = (TimerType) index;
+        Debug.Log(type);
         var timers = _timerManager.GetAllTimers().FindAll(timer => timer.Type == type);
 
         if (timers.Count == 0)

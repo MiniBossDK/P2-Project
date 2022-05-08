@@ -27,12 +27,14 @@ public class SliderValuePresenter : MonoBehaviour
         _inputManager.input.TouchControls.TouchPress.started += OnTouch;
         _inputManager.input.TouchControls.TouchPress.canceled += OnTouch;
     }
-
+    
+    /*
     private void OnDisable()
     {
         _inputManager.input.TouchControls.TouchPress.started -= OnTouch;
         _inputManager.input.TouchControls.TouchPress.canceled -= OnTouch;
     }
+    */
 
     private void Start()
     {

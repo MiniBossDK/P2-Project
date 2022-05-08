@@ -13,6 +13,13 @@ public struct LightSource
         LightLevel = lightLevel;
         TemperatureLevel = temperatureLevel;
     }
+    
+    public LightSource(float lightLevel, float temperatureLevel)
+    {
+        ID = Guid.NewGuid().ToString();
+        LightLevel = lightLevel;
+        TemperatureLevel = temperatureLevel;
+    }
 
     public string ID;
     public float LightLevel;
