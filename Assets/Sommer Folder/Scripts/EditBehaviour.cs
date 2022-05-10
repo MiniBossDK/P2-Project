@@ -21,6 +21,7 @@ public class EditBehaviour : MonoBehaviour
     private string originalTitle;
     public GameObject popUpWindow;
     public GameObject AddRoom;
+    bool isOn = false;
 
     void Start()
     {
@@ -47,32 +48,52 @@ public class EditBehaviour : MonoBehaviour
 
     private void EditRooms()
     {
-        AddRoom.SetActive(false);
-        rooms.Clear();
-        title.text = "Edit" + originalTitle;
-        checkmark.gameObject.SetActive(true);
-        checkmark.onClick.AddListener(KillMinusButton);
-        foreach (string tag in tags)
+        if (!isOn)
         {
-            foreach (GameObject ro in GameObject.FindGameObjectsWithTag(tag))
+            isOn = true;
+            AddRoom.SetActive(false);
+            rooms.Clear();
+            title.text = "Edit" + originalTitle;
+            checkmark.gameObject.SetActive(true);
+            checkmark.onClick.AddListener(KillMinusButton);
+            foreach (string tag in tags)
             {
-                if (!rooms.Contains(ro))
+                foreach (GameObject ro in GameObject.FindGameObjectsWithTag(tag))
                 {
-                    rooms.Add(ro);
+                    if (!rooms.Contains(ro))
+                    {
+                        rooms.Add(ro);
+                    }
+                }
+            }
+
+            foreach (GameObject dl in GameObject.FindGameObjectsWithTag("DeleteLocation"))
+            {
+                deleteLocation.Add(dl);
+            }
+            foreach (GameObject ro in rooms)
+            {
+                foreach (GameObject dl in deleteLocation)
+                {
+                    Instantiate(minusButton, dl.transform);
                 }
             }
         }
-
-        foreach (GameObject dl in GameObject.FindGameObjectsWithTag("DeleteLocation"))
+        else if (isOn)
         {
-            deleteLocation.Add(dl);
-        }
-        foreach (GameObject ro in rooms)
-        {
-            foreach (GameObject dl in deleteLocation)
+            GameObject[] derSkalSlettes = GameObject.FindGameObjectsWithTag("Pis");
+            foreach (GameObject drLicens in derSkalSlettes)
             {
-                Instantiate(minusButton, dl.transform);
+                Destroy(drLicens);
+                OnDeleteRoomEvent?.Invoke();
+                rooms.Clear();
+                deleteLocation.Clear();
             }
+            popUpWindow.SetActive(false);
+            checkmark.gameObject.SetActive(false);
+            AddRoom.SetActive(true);
+            title.text = originalTitle;
+            isOn = false;
         }
     }
 }

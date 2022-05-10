@@ -38,4 +38,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Finished Scenes/HelpPage.unity
     guid: f436aa2d278615547be2f7e7ec21f1a7
+  - enabled: 1
+    path: Assets/Finished Scenes/EditRoomName.unity
+    guid: f94d2e042a9f7164cbce0de6a3cfef52
+  - enabled: 1
+    path: Assets/Finished Scenes/EditRoom.unity
+    guid: 2b70084b99d38ed4d86a2e64319ac347
   m_configObjects: {}

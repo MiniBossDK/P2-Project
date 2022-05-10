@@ -3570,7 +3570,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Hours
+  m_text: '     :'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -6763,7 +6763,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Min
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -6790,7 +6790,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 59.95
+  m_fontSize: 36
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -7192,6 +7192,16 @@ PrefabInstance:
     - target: {fileID: 7597087765570189834, guid: f2f71c5c0ad3039499c1287d77488945, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7597087765570189835, guid: f2f71c5c0ad3039499c1287d77488945, type: 3}
+      propertyPath: m_text
+      value: 'Add timer
+
+'
+      objectReference: {fileID: 0}
+    - target: {fileID: 7597087765570189835, guid: f2f71c5c0ad3039499c1287d77488945, type: 3}
+      propertyPath: m_fontSize
+      value: 130.54
       objectReference: {fileID: 0}
     - target: {fileID: 7597087765637076298, guid: f2f71c5c0ad3039499c1287d77488945, type: 3}
       propertyPath: m_AnchorMax.y
