@@ -1770,7 +1770,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6868209147943581425, guid: 3ac77eae91b5a674cb3eccfbfeb09bab, type: 3}
       propertyPath: m_text
-      value: Help
+      value: Customer support
       objectReference: {fileID: 0}
     - target: {fileID: 6868209147943581425, guid: 3ac77eae91b5a674cb3eccfbfeb09bab, type: 3}
       propertyPath: m_fontSize

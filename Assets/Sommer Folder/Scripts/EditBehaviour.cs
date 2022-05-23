@@ -18,6 +18,7 @@ public class EditBehaviour : MonoBehaviour
     private string originalTitle;
     public GameObject popUpWindow;
     public GameObject AddRoom;
+    bool isOn = false;
 
     void Start()
     {
