@@ -16,6 +16,7 @@ TagManager:
   - Body
   - Plus
   - Spacer
+  - MinusButton
   layers:
   - Default
   - TransparentFX

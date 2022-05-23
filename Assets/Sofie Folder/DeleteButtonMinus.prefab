@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 183286250251300210}
   - component: {fileID: 183286250251300211}
   m_Layer: 5
-  m_Name: DeleteButton
-  m_TagString: Pis
+  m_Name: DeleteButtonMinus
+  m_TagString: MinusButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

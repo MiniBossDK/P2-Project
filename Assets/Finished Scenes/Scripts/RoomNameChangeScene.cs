@@ -19,8 +19,6 @@ public class RoomNameChangeScene : MonoBehaviour
     private void NameContinue()
     {
         PlayerPrefs.SetString("RoomName", m_InputField.text);
-        Debug.Log(PlayerPrefs.GetString("RoomName"));
         SceneChangeManager.LoadNextScene();
-
     }
 }

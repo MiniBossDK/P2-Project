@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 3498414990106047327}
   - component: {fileID: 9177486847015514970}
   m_Layer: 0
-  m_Name: Slet det pis
-  m_TagString: Pis
+  m_Name: DeleteButtonMinus
+  m_TagString: MinusButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

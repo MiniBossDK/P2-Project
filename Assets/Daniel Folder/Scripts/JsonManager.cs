@@ -19,7 +19,7 @@ public class JsonManager<T>
     private List<T> _data;
 
     private readonly string _fileName;
-    private string Path => Application.persistentDataPath + "/" + _fileName + ".json";
+    private string Path => Application.dataPath + "/" + _fileName + ".json";
 
     protected JsonManager(string fileName)
     {
@@ -29,19 +29,19 @@ public class JsonManager<T>
         Stream cr = File.Create(Path);
         cr.Close();
     }
-    
+
     protected void AddData(IEnumerable<T> data)
     {
         _data.AddRange(data);
         SaveData(_data);
     }
-    
+
     protected void AddData(T data)
     {
         _data.Add(data);
         SaveData(_data);
     }
-    
+
     protected void DeleteAllData(Predicate<T> filter)
     {
         _data.RemoveAll(filter);
@@ -77,7 +77,7 @@ public class JsonManager<T>
         var jsonData = JsonUtility.ToJson(new Data(data), true);
 
         _data = data;
-        
+
         File.WriteAllText(Path, jsonData);
     }
 

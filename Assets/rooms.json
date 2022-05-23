@@ -1,11 +1,19 @@
 {
     "DataList": [
         {
-            "ID": "4cfebe78-a443-4ecd-a67c-486029ddff3f",
-            "Name": "Hallo",
-            "RoomIconPath": "CoffeeTable",
+            "ID": "c6b2b630-f9ad-4465-922e-40fe7397b3bb",
+            "Name": "Hello",
+            "RoomIconPath": "DressingTable",
             "LightTemperatureLevel": 0.0,
-            "LightLevel": 0.4114406406879425,
+            "LightLevel": 0.0,
+            "Index": 0
+        },
+        {
+            "ID": "77783e19-ff64-42c1-a378-654021eae281",
+            "Name": "Yo",
+            "RoomIconPath": "DiningRoom",
+            "LightTemperatureLevel": 0.0,
+            "LightLevel": 0.0,
             "Index": 0
         }
     ]

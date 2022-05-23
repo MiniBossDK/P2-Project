@@ -7,7 +7,7 @@ public class DeleteRoom : MonoBehaviour
 {
     public delegate void DeleteRoomEvent();
     public event DeleteRoomEvent OnDeleteRoom;
-    
+
     [SerializeField] private Button button;
     [SerializeField] private GameObject deleteMessage;
     [SerializeField] private Button deleteButton;
@@ -36,15 +36,11 @@ public class DeleteRoom : MonoBehaviour
         cancelButton = GameObject.FindGameObjectWithTag("CancelButton").GetComponent<Button>();
         deleteButton.onClick.AddListener(KillRoom);
         cancelButton.onClick.AddListener(CloseDeleteMessage);
-        //button.onClick.AddListener(KillRoom);
-
     }
 
     private void CloseDeleteMessage()
     {
         deleteMessage.SetActive(false);
-        OnDeleteRoom?.Invoke();
-        
     }
     public void KillRoom()
     {
